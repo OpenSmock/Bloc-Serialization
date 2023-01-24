@@ -5,7 +5,7 @@ Bloc serialization features to store/unstore BlElements
 
 ```st
 Metacello new
-	baseline: 'Bloc-Serialization';
+	baseline: 'BlocSerialization';
 	repository: 'github://github.com/OpenSmock/Bloc-Serialization:main/src';
 	load.
 ```
