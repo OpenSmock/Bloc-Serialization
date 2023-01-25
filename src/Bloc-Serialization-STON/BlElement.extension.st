@@ -14,9 +14,7 @@ BlElement class >> fromSton: stonReader [
 { #category : #'*Bloc-Serialization-STON' }
 BlElement >> stonOn: stonWriter [
 
-	stonWriter
-		writeObject: self
-		streamMap: [ :dictionary | 
+	stonWriter writeObject: self streamMap: [ :dictionary | 
 		dictionary at: #background put: self background.
 		dictionary at: #border put: self border ]
 ]
