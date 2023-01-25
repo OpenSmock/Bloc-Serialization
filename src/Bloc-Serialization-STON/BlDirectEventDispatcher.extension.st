@@ -1,6 +1,6 @@
 Extension { #name : #BlDirectEventDispatcher }
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : #'*Bloc-Serialization-STON' }
 BlDirectEventDispatcher >> stonProcessSubObjects: block [
 
 	"Custom to ignore cycling in BlElement ownership"

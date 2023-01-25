@@ -1,6 +1,6 @@
 Extension { #name : #BlMatrix2D }
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : #'*Bloc-Serialization-STON' }
 BlMatrix2D >> stonContainSubObjects [
 
 	^ false

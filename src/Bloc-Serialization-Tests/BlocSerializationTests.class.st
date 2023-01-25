@@ -7,7 +7,7 @@ Class {
 { #category : #'as yet unclassified' }
 BlocSerializationTests >> serializeThenMaterialize: aBlElement [
 
-	^ BlElement materialize: aBlElement serialize
+	^ aBlElement serialize materializeAsBlElement
 ]
 
 { #category : #'as yet unclassified' }

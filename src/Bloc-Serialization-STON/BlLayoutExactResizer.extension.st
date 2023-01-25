@@ -1,6 +1,6 @@
 Extension { #name : #BlLayoutExactResizer }
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : #'*Bloc-Serialization-STON' }
 BlLayoutExactResizer class >> fromSton: stonReader [
 
 	stonReader parseMapDo: [ :key :value | 

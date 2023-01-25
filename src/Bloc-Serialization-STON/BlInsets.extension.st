@@ -1,6 +1,6 @@
 Extension { #name : #BlInsets }
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : #'*Bloc-Serialization-STON' }
 BlInsets class >> fromSton: stonReader [
 
 	| insets |
@@ -13,7 +13,7 @@ BlInsets class >> fromSton: stonReader [
 	^ insets
 ]
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : #'*Bloc-Serialization-STON' }
 BlInsets >> stonOn: stonWriter [
 
 

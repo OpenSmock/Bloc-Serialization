@@ -1,7 +1,7 @@
-Extension { #name : #BlBoundsCache }
+Extension { #name : #BlElementBounds }
 
-{ #category : #'*Bloc-Serialization' }
-BlBoundsCache >> stonProcessSubObjects: block [
+{ #category : #'*Bloc-Serialization-STON' }
+BlElementBounds >> stonProcessSubObjects: block [
 
 	"Custom to ignore cycling in BlElement ownership"
 
