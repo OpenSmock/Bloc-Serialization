@@ -10,7 +10,8 @@ BlocSerializationBackgroundTests >> testColor [
 	| origin |
 	origin := BlElement new background: (Color red alpha: 0.8).
 
-	self test: origin on: [ :element | 
+	self test: origin on: [ :element |
+		self assert: element background isTransparent equals: false.
 		self
 			assert: element background paint color
 			equals: (Color red alpha: 0.8) ]
@@ -24,7 +25,8 @@ BlocSerializationBackgroundTests >> testImageBackground1 [
 		          (BlImageBackground image:
 			           PolymorphSystemSettings pharoLogoForm).
 
-	self test: origin on: [ :element | 
+	self test: origin on: [ :element |
+		self assert: element background isTransparent equals: false.
 		self
 			assert: element background image bits
 			equals: PolymorphSystemSettings pharoLogoForm bits ]
@@ -38,7 +40,8 @@ BlocSerializationBackgroundTests >> testImageBackground2 [
 		          ((BlImageBackground image:
 			            PolymorphSystemSettings pharoLogoForm) opacity: 0.5).
 
-	self test: origin on: [ :element | 
+	self test: origin on: [ :element |
+		self assert: element background isTransparent equals: false.
 		self
 			assert: element background image bits
 			equals: PolymorphSystemSettings pharoLogoForm bits.
@@ -54,6 +57,7 @@ BlocSerializationBackgroundTests >> testLinearGradient1 [
 			           from: Color red
 			           to: Color blue).
 	self test: origin on: [ :element | 
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint start equals: 0 @ 0.
 		self assert: element background paint end equals: 0 @ 1.
 		self assert: element background paint stops size equals: 2.
@@ -74,6 +78,7 @@ BlocSerializationBackgroundTests >> testLinearGradient2 [
 			           from: Color red
 			           to: Color blue).
 	self test: origin on: [ :element | 
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint start equals: 0 @ 0.
 		self assert: element background paint end equals: 1 @ 0.
 		self assert: element background paint stops size equals: 2.
@@ -95,6 +100,7 @@ BlocSerializationBackgroundTests >> testLinearGradient3 [
 			           to: Color blue).
 
 	self test: origin on: [ :element | 
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint start equals: 0 @ 0.
 		self assert: element background paint end equals: 1 @ 1.
 		self assert: element background paint stops size equals: 2.
@@ -119,6 +125,7 @@ BlocSerializationBackgroundTests >> testLinearGradient4 [
 				           (1 -> Color black) }).
 
 	self test: origin on: [ :element | 
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint start equals: 0 @ 0.
 		self assert: element background paint end equals: 0 @ 1.
 		self assert: element background paint stops size equals: 5.
@@ -145,10 +152,10 @@ BlocSerializationBackgroundTests >> testPaintTransparent [
 	| origin |
 	origin := BlElement new background: BlPaint transparent.
 
-	self
-		test: origin
-		on: [ :element | 
-		self assert: element background paint isTransparent ]
+	self flag: #ERROR. "By default the background is transparent so this test test nothing."
+
+	self test: origin on: [ :element | 
+		self assert: element background isTransparent equals: true ]
 ]
 
 { #category : #tests }
@@ -161,7 +168,8 @@ BlocSerializationBackgroundTests >> testRadailGradient1 [
 			           radius: 10;
 			           yourself).
 
-	self test: origin on: [ :element | 
+	self test: origin on: [ :element |
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint center equals: 1 @ 5.
 		self assert: element background paint radius equals: 10.
 		self assert: element background paint stops size equals: 2.
@@ -188,7 +196,8 @@ BlocSerializationBackgroundTests >> testRadialGradient2 [
 			           radius: 10;
 			           yourself).
 
-	self test: origin on: [ :element | 
+	self test: origin on: [ :element |
+		self assert: element background isTransparent equals: false.
 		self assert: element background paint center equals: 1 @ 5.
 		self assert: element background paint radius equals: 10.
 		self assert: element background paint stops size equals: 5.
