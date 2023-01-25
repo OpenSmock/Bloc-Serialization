@@ -7,7 +7,8 @@ BlElement class >> fromSton: stonReader [
 	obj := self new.
 	stonReader parseMapDo: [ :key :value | 
 		key = #background ifTrue: [ obj background: value ].
-		key = #border ifTrue: [ obj border: value ] ].
+		key = #border ifTrue: [ obj border: value ].
+		key = #constraints ifTrue: [ obj constraints: value ] ].
 	^ obj
 ]
 
@@ -16,5 +17,6 @@ BlElement >> stonOn: stonWriter [
 
 	stonWriter writeObject: self streamMap: [ :dictionary | 
 		dictionary at: #background put: self background.
-		dictionary at: #border put: self border ]
+		dictionary at: #border put: self border.
+		dictionary at: #constraints put: self constraints ]
 ]
