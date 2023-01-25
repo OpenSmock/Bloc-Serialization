@@ -178,6 +178,16 @@ BlocSerializationConstraintsTests >> testPosition2 [
 ]
 
 { #category : #tests }
+BlocSerializationConstraintsTests >> testSize [
+
+	| origin |
+	origin := BlElement new size: 10 @ 20; yourself.
+	self test: origin on: [ :element | 
+		self assert: element constraints horizontal resizer size equals: 10.
+		self assert: element constraints vertical resizer size equals: 20 ]
+]
+
+{ #category : #tests }
 BlocSerializationConstraintsTests >> testWidth [
 
 	| origin |
