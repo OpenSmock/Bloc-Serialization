@@ -1,29 +1,15 @@
 Extension { #name : #BlElement }
 
 { #category : #'*Bloc-Serialization-STON' }
-BlElement >> fromSton: stonReader [
+BlElement class >> stonAllInstVarNames [
 
-	stonReader parseMapDo: [ :key :value | 
-		| realValue |
-		realValue := value isStonReference
-			             ifTrue: [ stonReader resolveReference: value ]
-			             ifFalse: [ value ].
-		key = #background ifTrue: [ self background: realValue ].
-		key = #border ifTrue: [ self border: realValue ].
-		key = #children ifTrue: [ self addChildren: realValue ].
-		key = #constraints ifTrue: [ self constraints: realValue ].
-		key = #geometry ifTrue: [ self geometry: realValue ] ]
+	^ #( children constraints visuals )
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
-BlElement >> stonOn: stonWriter [
+BlElement >> stonPostReferenceResolution [
 
-	stonWriter writeObject: self streamMap: [ :dictionary | 
-		dictionary at: #background put: self background.
-		dictionary at: #border put: self border.
-		dictionary at: #children put: self children.
-		dictionary at: #constraints put: self constraints.
-		dictionary at: #geometry put: self geometry ]
+	self childrenDo: [ :child | child parent: self ]
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
