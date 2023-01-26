@@ -8,10 +8,12 @@ Class {
 BaselineOfBlocSerialization >> baseline: spec [
 
 	<baseline>
-	spec for: #common do: [
+	spec for: #common do: [ 
+		spec
+			package: 'Bloc-Serialization-STON'.
 		spec
 			package: 'Bloc-Serialization'
-			with: [ spec requires: #( 'Bloc' ) ].
+			with: [ spec requires: #( 'Bloc' 'Bloc-Serialization-STON' ) ].
 		spec
 			baseline: 'Bloc'
 			with: [ 
