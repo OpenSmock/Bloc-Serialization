@@ -1,19 +1,7 @@
-Extension { #name : #BlElement }
+Extension { #name : #BlElementStates }
 
 { #category : #'*Bloc-Serialization-STON' }
-BlElement class >> stonAllInstVarNames [
-
-	^ #( children constraints visuals userData )
-]
-
-{ #category : #'*Bloc-Serialization-STON' }
-BlElement >> stonPostReferenceResolution [
-
-	self childrenDo: [ :child | child parent: self ]
-]
-
-{ #category : #'*Bloc-Serialization-STON' }
-BlElement >> stonProcessSubObjects: block [
+BlElementStates >> stonProcessSubObjects: block [
 
 	"Custom to ignore cycling in BlElement ownership"
 
