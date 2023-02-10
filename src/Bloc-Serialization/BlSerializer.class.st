@@ -7,11 +7,11 @@ Class {
 { #category : #serialization }
 BlSerializer class >> materialize: aString [
 
-	^ BlSTON fromString: aString
+	^ STON fromString: aString
 ]
 
 { #category : #serialization }
 BlSerializer class >> serialize: aBlElement [
 
-	^ BlSTON toStringPretty: aBlElement
+	^ STON toStringPretty: aBlElement
 ]
