@@ -104,7 +104,7 @@ BlocSerializationConstraintsTests >> testPadding1 [
 { #category : #tests }
 BlocSerializationConstraintsTests >> testPadding2 [
 
-	| origin unserialized |
+	| origin |
 	origin := BlElement new
 		          padding: (BlInsets
 				           top: 1
@@ -117,7 +117,6 @@ BlocSerializationConstraintsTests >> testPadding2 [
 		self assert: element padding left equals: 2.
 		self assert: element padding bottom equals: 3.
 		self assert: element padding right equals: 4 ]
-
 ]
 
 { #category : #tests }
@@ -137,7 +136,7 @@ BlocSerializationConstraintsTests >> testPadding3 [
 { #category : #tests }
 BlocSerializationConstraintsTests >> testPadding4 [
 
-	| origin unserialized |
+	| origin |
 	origin := BlElement new
 		          constraintsDo: [ :c | 
 			          c padding: (BlInsets

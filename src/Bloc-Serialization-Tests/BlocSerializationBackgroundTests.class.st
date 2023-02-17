@@ -123,7 +123,6 @@ BlocSerializationBackgroundTests >> testLinearGradient4 [
 				           (0.2 -> Color green).
 				           (0.3 -> Color yellow).
 				           (1 -> Color black) }).
-
 	self test: origin on: [ :element | 
 		self assert: element background isTransparent equals: false.
 		self assert: element background paint start equals: 0 @ 0.
