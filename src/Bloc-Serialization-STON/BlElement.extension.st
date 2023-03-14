@@ -3,7 +3,7 @@ Extension { #name : #BlElement }
 { #category : #'*Bloc-Serialization-STON' }
 BlElement class >> stonAllInstVarNames [
 
-	^ #( children constraints visuals userData )
+	^ #( children constraints visuals userData layout eventDispatcher )
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
