@@ -1,7 +1,7 @@
 Class {
 	#name : #BlocSerializationLayoutTests,
 	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests'
+	#category : #'Bloc-Serialization-Tests-Core'
 }
 
 { #category : #asserting }
