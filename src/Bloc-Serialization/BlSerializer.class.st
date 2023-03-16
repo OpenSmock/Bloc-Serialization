@@ -1,3 +1,6 @@
+"
+Serailizer class for Bloc
+"
 Class {
 	#name : #BlSerializer,
 	#superclass : #Object,
