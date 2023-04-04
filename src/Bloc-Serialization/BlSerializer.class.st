@@ -20,15 +20,30 @@ BlSerializer class >> materialize: aString [
 ]
 
 { #category : #serialization }
-BlSerializer class >> serialize: aBlElement [
+BlSerializer class >> serialize: aBlElementOrACollection [
 	"Serialize a BlElement into a String using a serializer. Default serializer is STON."
 
 	| string |
-	(aBlElement isKindOf: BlElement) ifFalse:[ BlocSerializationError signal: 'Cannot serialize an objet which is not from BlElement class hierarchy' ].
+	aBlElementOrACollection isCollection ifTrue: [ self verifyCollection: aBlElementOrACollection ] ifFalse: [ self verifyElement: aBlElementOrACollection ].
+	
 	"Try to serialize and catch an error into a BlocSerialization error"
-	[ string := STON toStringPretty: aBlElement ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
+	[ string := STON toStringPretty: aBlElementOrACollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
 
 	^ string
+]
+
+{ #category : #'as yet unclassified' }
+BlSerializer class >> verifyCollection: aCollection [
+
+	aCollection do: [ :each | self verifyElement: each ]
+]
+
+{ #category : #'as yet unclassified' }
+BlSerializer class >> verifyElement: aBlElement [
+
+	(aBlElement isKindOf: BlElement) ifFalse: [
+		BlocSerializationError signal:
+			'Cannot serialize an objet which is not from BlElement class hierarchy' ]
 ]
 
 { #category : #'see class side' }
