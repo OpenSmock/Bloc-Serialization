@@ -7,7 +7,7 @@ Bloc serialization features to store/unstore BlElements.
 
 Use this method to serialize any BlElement into a String.
 
-```
+```smalltalk
 string := BlElement new serialize.
 ```
 
@@ -15,13 +15,13 @@ string := BlElement new serialize.
 
 Use this method to materialize any serialized String into a BlElement.
 
-```
+```smalltalk
 blElement := string materializeAsBlElement.
 ```
 
 ## Installation
 
-```st
+```smalltalk
 Metacello new
 	baseline: 'BlocSerialization';
 	repository: 'github://OpenSmock/Bloc-Serialization:main/src';
