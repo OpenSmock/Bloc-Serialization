@@ -168,12 +168,11 @@ BlocSerializationConstraintsTests >> testPosition2 [
 
 	| origin |
 	origin := BlElement new
-		          relocate: 100 @ 500;
+		          position: 100 @ 500;
 		          yourself.
-		
-	self test: origin on: [ :element | 
-		self assert: element constraints position equals: 100 @ 500. ]
-	
+
+	self test: origin on: [ :element |
+		self assert: element constraints position equals: 100 @ 500 ]
 ]
 
 { #category : #tests }

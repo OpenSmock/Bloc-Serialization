@@ -7,7 +7,7 @@ Class {
 { #category : #utilities }
 BlocSerializationTests >> serializeThenMaterialize: aBlElement [
 
-	^ aBlElement serialize materializeAsBlElement
+	^ BlSerializer materialize: (BlSerializer serialize: aBlElement)
 ]
 
 { #category : #utilities }
