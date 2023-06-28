@@ -20,20 +20,31 @@ BlSerializer class >> materialize: aString [
 ]
 
 { #category : #serialization }
-BlSerializer class >> serialize: aBlElementOrACollection [
-	"Serialize a BlElement into a String using a serializer. Default serializer is STON."
+BlSerializer class >> serialize: aBlElementOrABlElementsCollection [
+	"Serialize a BlElement or a list of BlElements into a String using a serializer. Default serializer is STON."
 
 	| string |
-	aBlElementOrACollection isCollection ifTrue: [ self verifyCollection: aBlElementOrACollection ] ifFalse: [ self verifyElement: aBlElementOrACollection ].
+	aBlElementOrABlElementsCollection isCollection 
+		ifTrue: [ self verifyCollection: aBlElementOrABlElementsCollection ] 
+		ifFalse: [ self verifyElement: aBlElementOrABlElementsCollection ].
 	
 	"Try to serialize and catch an error into a BlocSerialization error"
-	[ string := STON toStringPretty: aBlElementOrACollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
+	[ string := STON toStringPretty: aBlElementOrABlElementsCollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
 
 	^ string
 ]
 
 { #category : #'as yet unclassified' }
 BlSerializer class >> verifyCollection: aCollection [
+
+	"Check if the collection is supported : can contains some BlElements"
+	aCollection isString ifTrue:[ 
+		BlocSerializationError signal: 'Cannot serialize a String'
+	].
+
+	aCollection isDictionary ifTrue:[
+		BlocSerializationError signal: 'Cannot serialize a Dictionary'	
+	].
 
 	aCollection do: [ :each | self verifyElement: each ]
 ]
