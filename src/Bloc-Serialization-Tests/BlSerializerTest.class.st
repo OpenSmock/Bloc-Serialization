@@ -52,6 +52,26 @@ BlSerializerTest >> testSerialize [
 ]
 
 { #category : #tests }
+BlSerializerTest >> testSerializeBlElementCollection [
+	| error result oc oc2 |
+
+	"Empty Collection"
+	error := nil. result := nil.
+	[ result := BlSerializer serialize: OrderedCollection new ] onErrorDo: [ :e | error := e ].
+	self deny: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
+	self assert: result equals: 'OrderedCollection [ ]'.
+	
+	error := nil. result := nil.
+	oc := OrderedCollection new.
+	oc add: BlElement new; add: BlElement new; add: BlElement new.
+	[ result := BlSerializer serialize: oc ] onErrorDo: [ :e | error := e ].
+	self deny: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
+	oc2 := result materializeAsBlElement.
+	self assert: oc2 size equals: 3.
+	self assert: (oc2 allSatisfy: [ :e | e class = BlElement ]).
+]
+
+{ #category : #tests }
 BlSerializerTest >> testSerializeNilObject [
 
 	| error blElement |
@@ -65,14 +85,27 @@ BlSerializerTest >> testSerializeNilObject [
 
 { #category : #tests }
 BlSerializerTest >> testSerializeNoBlElement [
+	| error result |
 
-	| error |
-	error := nil.
-
-	[ BlSerializer serialize: (String new) ]
-		onErrorDo: [ :e | error := e ].
-
-	self assert: (error isKindOf: BlocSerializationError)
+	"Not a supported collection"
+	error := nil. result := nil.
+	[ result := BlSerializer serialize: String new ] onErrorDo: [ :e | error := e ].
+	self assert: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
+	
+	"Not a supported collection"
+	error := nil. result := nil.
+	[ result := BlSerializer serialize: 'Not a supported collection' ] onErrorDo: [ :e | error := e ].
+	self assert: (error isKindOf: BlocSerializationError). 
+	
+	"Not a supported collection"
+	error := nil. result := nil.
+	[ result := BlSerializer serialize: #(1 2 3)] onErrorDo: [ :e | error := e ].
+	self assert: (error isKindOf: BlocSerializationError).
+	
+	"Not a supported collection"
+	error := nil. result := nil.
+	[ result := BlSerializer serialize: Dictionary new ] onErrorDo: [ :e | error := e ].
+	self assert: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
 ]
 
 { #category : #tests }
