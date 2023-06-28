@@ -1,5 +1,8 @@
 # Bloc-Serialization
+
 Bloc serialization features to store/unstore BlElements.
+
+[![Pharo 11 CI](https://github.com/OpenSmock/Bloc-Serialization/actions/workflows/Pharo11CI.yml/badge.svg)](https://github.com/OpenSmock/Bloc-Serialization/actions/workflows/Pharo11CI.yml)
 
 ## How to use
 
