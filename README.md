@@ -5,6 +5,19 @@
 
 Bloc serialization features to store/unstore BlElements.
 
+## Getting Started
+
+### Installation
+
+To install Bloc-Serialization on your Pharo image you can just execute the following script:
+
+```smalltalk
+Metacello new
+	baseline: 'BlocSerialization';
+	repository: 'github://OpenSmock/Bloc-Serialization:main/src';
+	load.
+```
+
 ## How to use
 
 ### Serialization
@@ -44,6 +57,12 @@ Of course, you need to know that the string is a serialized Collection.
 oc := string materializeAsBlElement.
 ```
 
+Tips : you can quickly copy a `BlElement` using `BlElement>>serializeThenMaterialize`.
+```smalltalk
+element := BlElement new.
+copy := element serializeThenMaterialize.
+```
+
 ### Exception / Error
 
 Serialization or Materialization process return some exceptions in case of problems : 
@@ -51,11 +70,15 @@ Serialization or Materialization process return some exceptions in case of probl
 >  `BlocSerializationError`
 > `BlocMaterializationError`
 
-## Installation
+## Serialization backends
 
-```smalltalk
-Metacello new
-	baseline: 'BlocSerialization';
-	repository: 'github://OpenSmock/Bloc-Serialization:main/src';
-	load.
-```
+Actually `STON` is the only backend used for serialization. The project architecture allow to add anothers serialization backends if needed.
+
+## Dependencies
+
+- [Bloc](https://github.com/pharo-graphics/Bloc)
+- [STON](https://github.com/svenvc/ston)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
