@@ -114,5 +114,6 @@ BlSerializerTest >> testSerializeThenMaterialize [
 	| string blElement |
 	string := BlSerializer serialize: BlElement new.
 	blElement := string materializeAsBlElement.
-	self assert: (blElement isKindOf: BlElement)
+	
+	self assert: blElement class equals: BlElement
 ]

@@ -5,6 +5,16 @@ Class {
 }
 
 { #category : #tests }
+BlocSerializationIdentificationTests >> testIdentityHash [
+
+	| element newElement |
+	element := BlElement new.
+	newElement := self serializeThenMaterialize: element.
+	
+	self deny: element identityHash equals: newElement identityHash.
+]
+
+{ #category : #tests }
 BlocSerializationIdentificationTests >> testNamedId [
 
 	| origin |
