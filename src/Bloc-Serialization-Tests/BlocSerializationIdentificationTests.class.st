@@ -22,7 +22,7 @@ BlocSerializationIdentificationTests >> testNamedId [
 
 	self
 		test: origin
-		on: [ :element | self assert: element id identifier equals: #test ]
+		on: [ :element | self assert: element id equals: #test ]
 ]
 
 { #category : #tests }
@@ -33,9 +33,11 @@ BlocSerializationIdentificationTests >> testNamedIndexedId [
 		          id: ((BlElementId named: #test) indexed: 1);
 		          yourself.
 
-	self
-		test: origin
-		on: [ :element | self assert: element id prefixId identifier equals: #test. self assert: element id index equals: 1.  self assert: element id  equals: ((BlElementId named: #test) indexed: 1).]
+	self test: origin on: [ :element | 
+		self assert: element id equals: #'test-1'. 
+		self assert: element elementId index equals: 1.  
+		self assert: element elementId equals: ((BlElementId named: #test) indexed: 1).
+	]
 ]
 
 { #category : #tests }
@@ -45,9 +47,9 @@ BlocSerializationIdentificationTests >> testNoId1 [
 	origin := BlElement new.
 
 	self test: origin on: [ :element | 
-		self
-			assert: element id
-			equals: BlElementNoId uniqueInstance ]
+		self assert: element elementId equals: BlElementNoId uniqueInstance.
+		self assert: element id isNil.	
+	]
 ]
 
 { #category : #tests }
@@ -57,5 +59,7 @@ BlocSerializationIdentificationTests >> testNoId2 [
 	origin := BlElement new id: BlElementId noId.
 
 	self test: origin on: [ :element | 
-		self assert: element id equals: BlElementNoId uniqueInstance ]
+		self assert: element elementId equals: BlElementNoId uniqueInstance.
+		self assert: element id isNil.
+	]
 ]
