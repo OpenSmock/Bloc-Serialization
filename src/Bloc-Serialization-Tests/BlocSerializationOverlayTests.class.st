@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationOverlayTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationOverlayTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationOverlayTests >> testCannotSaveOverlayElementWhenAttached [
 
 	| element overlayElement newElement |

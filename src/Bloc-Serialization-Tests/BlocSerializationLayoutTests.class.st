@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationLayoutTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationLayoutTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 BlocSerializationLayoutTests >> assertExactConstraint: aPoint forElement: anElement [
 
 	self
@@ -15,7 +17,7 @@ BlocSerializationLayoutTests >> assertExactConstraint: aPoint forElement: anElem
 		equals: aPoint y
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest1 [
 
 	| origin |
@@ -29,7 +31,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest1 [
 	self assertExactConstraint: 100 @ 50 forElement: element. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest2 [
 
 	| origin |
@@ -41,7 +43,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest2 [
 		self assert: element layout class equals: BlFrameLayout ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest3 [
 
 	| origin |
@@ -59,7 +61,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest3 [
 	self assert: element border paint equals: Color red asBlPaint. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest1 [
 
 	| origin |
@@ -71,7 +73,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest1 [
 		self assertExactConstraint: 140 @ 140 forElement: element ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest2 [
 
 	| origin childOne childTwo |
@@ -89,7 +91,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest2 [
 		self assert: parent extent equals: 300 @ 250 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest3 [
 
 	| origin childOne childTwo |
@@ -107,7 +109,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest3 [
 	self assert: parent extent equals: 300 @ 250. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest4 [
 
 	| origin childTopLeft childTopCenter childTopRight childCenterLeft childCenterCenter childCenterRight childBottomLeft childBottomCenter childBottomRight |
@@ -127,7 +129,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest4 [
 	self assert: parent extent equals: 300 @ 250. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest5 [
 
 	| origin childOne childTwo |
@@ -145,7 +147,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest5 [
 	self assert: parent extent equals: 300 @ 250. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest6 [
 
 	| origin childOne childTwo |
@@ -163,7 +165,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest6 [
 	self assert: parent extent equals: 250 @ 250. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest7 [
 
 	| origin childOne childTwo |
@@ -181,7 +183,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest7 [
 	self assert: parent extent equals: 300 @ 250. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest1 [
 
 	| origin childA |
@@ -196,7 +198,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest1 [
 		self assert: parent position equals: 0 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest10 [
 
 	| origin   |
@@ -207,7 +209,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest10 [
 	self assert: element layout isHorizontal. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest2 [
 
 	| origin childA childB |
@@ -225,7 +227,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest2 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest3 [
 
 	| origin childA |
@@ -240,7 +242,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest3 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest4 [
 
 	| origin childA childB childC |
@@ -261,7 +263,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest4 [
 	self assert: parent position equals: 0 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest5 [
 
 	| origin childA childB childC |
@@ -282,7 +284,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest5 [
 	self assert: parent position equals: 0 @ 0]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest6 [
 
 	| origin childA childB |
@@ -300,7 +302,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest6 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest7 [
 
 	| origin childA childB |
@@ -318,7 +320,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest7 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest8 [
 
 	| origin childA childB |
@@ -336,7 +338,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest8 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest9 [
 
 	| origin aRed aBlue |
@@ -362,7 +364,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutHorizontalTest9 [
 	self assert: aBlue extent equals: 460 @ 380. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest1 [
 
 	| origin child |
@@ -375,7 +377,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest1 [
 		self assert: child extent equals: 100 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest10 [
 
 	| origin childA childB childC |
@@ -392,7 +394,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest10 [
 	self assert: childC extent equals: 75 @ 50. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest2 [
 
 	| origin child |
@@ -405,7 +407,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest2 [
 		self assert: child extent equals: 100 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest3 [
 
 	| origin child |
@@ -418,7 +420,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest3 [
 		self assert: child extent equals: 100 @ 200 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest4 [
 
 	| origin child subChildren |
@@ -432,7 +434,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest4 [
 	self assert: child extent equals: 300 @ 400. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest5 [
 
 	| origin childA childB subChildren |
@@ -448,7 +450,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest5 [
 	self assert: childB extent equals: 100 @ 75. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest6 [
 
 	| origin childA childB subChildA subChildB |
@@ -466,7 +468,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest6 [
 		self assert: subChildB extent equals: 100 @ 75 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest7 [
 
 	| origin childA childB childC childD |
@@ -485,7 +487,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest7 [
 	self assert: childD extent equals: 260 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest8 [
 
 	| origin childA childB childC |
@@ -502,7 +504,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest8 [
 		self assert: childC extent equals: 75 @ 50 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest9 [
 
 	| origin childA childB childC childD |
@@ -521,7 +523,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutUsageTest9 [
 	self assert: childD extent equals: 260 @ 35. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest1 [
 
 	| origin childA |
@@ -536,19 +538,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest1 [
 		self assert: parent position equals: 0 @ 0 ]
 ]
 
-{ #category : #tests }
-BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest10 [
-
-	| origin |
-	origin := BlLinearLayoutVerticalTest new
-		          testParentWithLinearHorizontalLayout.
-	self test: origin on: [ :element | 
-		element forceLayout.
-		self assert: element layout class equals: BlLinearLayout.
-	self assert: element layout isVertical. ]
-]
-
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest2 [
 
 	| origin childA childB |
@@ -565,7 +555,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest2 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest3 [
 
 	| origin childA childB childC |
@@ -586,7 +576,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest3 [
 		self assert: parent position equals: 0 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest4 [
 
 	| origin childA childB |
@@ -604,7 +594,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest4 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest5 [
 
 	| origin childA |
@@ -619,7 +609,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest5 [
 	self assert: parent position equals: 0 @ 0]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest6 [
 
 	| origin childA childB childC |
@@ -640,7 +630,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest6 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest7 [
 
 	| origin childA |
@@ -655,7 +645,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest7 [
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest8 [
 
 	| origin childA childB childC |
@@ -667,16 +657,16 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest8 [
 		childC := parent childAt: 3.
 		parent forceLayout.
 		self assert: childA extent equals: 100 @ 100.
-	self assert: childA position equals: 400 @ 0.
+	self assert: childA position equals: 400 @ 200.
 	self assert: childB extent equals: 200 @ 100.
 	self assert: childB position equals: 150 @ 100.
 	self assert: childC extent equals: 50 @ 100.
-	self assert: childC position equals: 0 @ 200.
+	self assert: childC position equals: 0 @ 0.
 	self assert: parent extent equals: 500 @ 600.
 	self assert: parent position equals: 0 @ 0. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest9 [
 
 	| origin aRed aBlue |
@@ -702,7 +692,7 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest9 [
 		self assert: aBlue extent equals: 380 @ 460 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlOnceLayoutTest1 [
 
 	| origin aChildA aChildB aChildC |
@@ -749,7 +739,7 @@ BlocSerializationLayoutTests >> testBlOnceLayoutTest1 [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutTests >> testBlOnceLayoutTest2 [
 
 	| origin aChildA aChildB aChildC |

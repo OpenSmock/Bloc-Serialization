@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationIdentificationTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationIdentificationTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationIdentificationTests >> testIdentityHash [
 
 	| element newElement |
@@ -14,7 +16,7 @@ BlocSerializationIdentificationTests >> testIdentityHash [
 	self deny: element identityHash equals: newElement identityHash.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationIdentificationTests >> testNamedId [
 
 	| origin |
@@ -25,7 +27,7 @@ BlocSerializationIdentificationTests >> testNamedId [
 		on: [ :element | self assert: element id equals: #test ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationIdentificationTests >> testNamedIndexedId [
 
 	| origin |
@@ -40,7 +42,7 @@ BlocSerializationIdentificationTests >> testNamedIndexedId [
 	]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationIdentificationTests >> testNoId1 [
 
 	| origin |
@@ -52,7 +54,7 @@ BlocSerializationIdentificationTests >> testNoId1 [
 	]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationIdentificationTests >> testNoId2 [
 
 	| origin |

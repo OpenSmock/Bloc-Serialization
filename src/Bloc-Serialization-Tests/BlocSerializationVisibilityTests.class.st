@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationVisibilityTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationVisibilityTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationVisibilityTests >> testGone [
 
 	| origin |
@@ -18,7 +20,7 @@ BlocSerializationVisibilityTests >> testGone [
 		self assert: element visibility isGone equals: true ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationVisibilityTests >> testHidden [
 
 	| origin |
@@ -32,7 +34,7 @@ BlocSerializationVisibilityTests >> testHidden [
 		self assert: element visibility isGone equals: false ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationVisibilityTests >> testVisible [
 
 	| origin |

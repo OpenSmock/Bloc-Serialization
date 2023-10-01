@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationLayoutSimpleTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationLayoutSimpleTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutSimpleTests >> parentWithChildExactSize [
 
 	| child parent |
@@ -31,7 +33,7 @@ BlocSerializationLayoutSimpleTests >> parentWithChildExactSize [
 	^ parent
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutSimpleTests >> testForceLayoutOfMatchParent [
 
 	| origin |
@@ -47,7 +49,7 @@ BlocSerializationLayoutSimpleTests >> testForceLayoutOfMatchParent [
 		on: [ :element | element forceLayout.self assert: element extent equals: 800 @ 600 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutSimpleTests >> testParentWithChildExactSize [
 
 	| parent child |
@@ -63,7 +65,7 @@ BlocSerializationLayoutSimpleTests >> testParentWithChildExactSize [
 		self assert: element extent equals: 100 @ 100 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutSimpleTests >> testParentWithChildFitContent [
 
 	| child parent |
@@ -82,7 +84,7 @@ BlocSerializationLayoutSimpleTests >> testParentWithChildFitContent [
 		self assert: element extent equals: 0 @ 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationLayoutSimpleTests >> testParentWithChildMatchParent [
 
 	| child parent |

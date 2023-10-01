@@ -2,12 +2,14 @@
 A BlSerializerTest is a test class for testing the behavior of BlSerializer
 "
 Class {
-	#name : #BlSerializerTest,
-	#superclass : #TestCase,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlSerializerTest',
+	#superclass : 'TestCase',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testMaterializeEmptyString [
 
 	| error blElement |
@@ -19,7 +21,7 @@ BlSerializerTest >> testMaterializeEmptyString [
 	self assert: (error isKindOf: BlocMaterializationError)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testMaterializeNilString [
 
 	| blElement error |
@@ -31,7 +33,7 @@ BlSerializerTest >> testMaterializeNilString [
 	self assert: (error isKindOf: BlocMaterializationError)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testMaterializeNotSerializedString [
 
 	| blElement error |
@@ -43,7 +45,7 @@ BlSerializerTest >> testMaterializeNotSerializedString [
 	self assert: (error isKindOf: BlocMaterializationError)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testSerialize [
 
 	| string |
@@ -51,7 +53,7 @@ BlSerializerTest >> testSerialize [
 	self assert: string isString
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testSerializeBlElementCollection [
 	| error result oc oc2 |
 
@@ -71,7 +73,7 @@ BlSerializerTest >> testSerializeBlElementCollection [
 	self assert: (oc2 allSatisfy: [ :e | e class = BlElement ]).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testSerializeNilObject [
 
 	| error blElement |
@@ -83,7 +85,7 @@ BlSerializerTest >> testSerializeNilObject [
 	self assert: (error isKindOf: BlocSerializationError)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testSerializeNoBlElement [
 	| error result |
 
@@ -108,7 +110,7 @@ BlSerializerTest >> testSerializeNoBlElement [
 	self assert: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlSerializerTest >> testSerializeThenMaterialize [
 
 	| string blElement |

@@ -1,10 +1,12 @@
 Class {
-	#name : #BlElementSerializationTests,
-	#superclass : #TestCase,
-	#category : #'Bloc-Serialization-Tests-Extensions'
+	#name : 'BlElementSerializationTests',
+	#superclass : 'TestCase',
+	#category : 'Bloc-Serialization-Tests-Extensions',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Extensions'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlElementSerializationTests >> testSerialize [
 
 	| string |
@@ -12,7 +14,7 @@ BlElementSerializationTests >> testSerialize [
 	self assert: string isString
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlElementSerializationTests >> testSerializeThenMaterialize [
 
 	| element newElement |
