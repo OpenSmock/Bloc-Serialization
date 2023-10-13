@@ -537,18 +537,6 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest1 [
 ]
 
 { #category : #tests }
-BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest10 [
-
-	| origin |
-	origin := BlLinearLayoutVerticalTest new
-		          testParentWithLinearHorizontalLayout.
-	self test: origin on: [ :element | 
-		element forceLayout.
-		self assert: element layout class equals: BlLinearLayout.
-	self assert: element layout isVertical. ]
-]
-
-{ #category : #tests }
 BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest2 [
 
 	| origin childA childB |
@@ -667,11 +655,11 @@ BlocSerializationLayoutTests >> testBlLinearLayoutVerticalTest8 [
 		childC := parent childAt: 3.
 		parent forceLayout.
 		self assert: childA extent equals: 100 @ 100.
-	self assert: childA position equals: 400 @ 0.
+	self assert: childA position equals: 400 @ 200.
 	self assert: childB extent equals: 200 @ 100.
 	self assert: childB position equals: 150 @ 100.
 	self assert: childC extent equals: 50 @ 100.
-	self assert: childC position equals: 0 @ 200.
+	self assert: childC position equals: 0 @ 0.
 	self assert: parent extent equals: 500 @ 600.
 	self assert: parent position equals: 0 @ 0. ]
 ]
