@@ -3,7 +3,7 @@ name: 'Pharo 12 CI'
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   pull_request:
     types: [assigned, opened, synchronize, reopened]
   schedule:
