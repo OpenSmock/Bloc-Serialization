@@ -11,16 +11,47 @@ BlElement >> stonOn: stonWriter [
 
 	| previousData copyData |
 	previousData := self userData.
-	copyData := previousData copy.
-	
-	copyData removeKey: #blocProperties ifAbsent: [nil].
-	copyData removeKey: #blocStates ifAbsent: [nil].
-	copyData removeKey: #blocPreviousMeasurementSpec ifAbsent: [nil].
-	copyData removeKey: #blocStyles ifAbsent: [nil].
+	copyData := IdentityDictionary new.
+	self stonUserDataOn: copyData.
 	
 	userData := copyData.
-	stonWriter writeObject: self.
-	userData := previousData.
+	self isLeaf
+		ifTrue: [ self stonOnWithoutChildren: stonWriter ]
+		ifFalse: [ self stonOnWithChildren: stonWriter ].
+	userData := previousData
+]
+
+{ #category : #'*Bloc-Serialization-STON' }
+BlElement >> stonOn: stonWriter withInstanceVariables: instanceVariableNames [
+
+	instanceVariableNames  isEmpty
+		ifTrue: [
+		stonWriter writeObject: self do: [ stonWriter encodeMap: #(  ) ] ]
+		ifFalse: [
+			stonWriter writeObject: self streamMap: [ :dictionary |
+				(instanceVariableNames ) do: [
+					:each |
+					(self instVarNamed: each)
+						ifNotNil: [ :value | dictionary at: each asSymbol put: value ]
+						ifNil: [
+							self stonShouldWriteNilInstVars ifTrue: [
+								dictionary at: each asSymbol put: nil ] ] ] ] ]
+]
+
+{ #category : #'*Bloc-Serialization-STON' }
+BlElement >> stonOnWithChildren: stonWriter [
+
+	self stonOn: stonWriter withInstanceVariables: (self class stonAllInstVarNames)
+]
+
+{ #category : #'*Bloc-Serialization-STON' }
+BlElement >> stonOnWithoutChildren: stonWriter [
+
+
+	self
+		stonOn: stonWriter
+		withInstanceVariables: (self class stonAllInstVarNames reject: [ :each | each = #children ])
+	
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
@@ -31,13 +62,28 @@ BlElement >> stonPostReferenceResolution [
 
 { #category : #'*Bloc-Serialization-STON' }
 BlElement >> stonProcessSubObjects: block [
-
 	"Custom to ignore cycling in BlElement ownership"
 
-	1 to: self class instSize do: [ :each | 
-		((self instVarAt: each) isKindOf: BlElement) ifFalse: [ 
-			self instVarAt: each put: (block value: (self instVarAt: each)) ] ].
-	(self class isVariable and: [ self class isBytes not ]) ifTrue: [ 
-		1 to: self basicSize do: [ :each | 
-		self basicAt: each put: (block value: (self basicAt: each)) ] ]
+	| instanceVariables |
+	instanceVariables := self class stonAllInstVarNames.
+	self isLeaf ifTrue: [
+		instanceVariables := instanceVariables reject: [ :each |
+			                     each = #children ] ].
+	instanceVariables do: [ :each |
+		self
+			instVarNamed: each
+			put: (block value: (self instVarNamed: each)) ]
+
+	"1 to: self class instSize do: [ :each |
+		self instVarAt: each put: (block value: (self instVarAt: each)) ].
+	(self class isVariable and: [ self class isBytes not ]) ifTrue: [
+		1 to: self basicSize do: [ :each |
+		self basicAt: each put: (block value: (self basicAt: each)) ] ]"
+]
+
+{ #category : #'*Bloc-Serialization-STON' }
+BlElement >> stonUserDataOn: aIdentityDictionary [.
+	
+	self userData at: #elementId ifPresent: [ :id | aIdentityDictionary at: #elementId put: id ]
+	
 ]
