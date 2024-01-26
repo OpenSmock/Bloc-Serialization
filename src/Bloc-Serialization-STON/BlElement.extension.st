@@ -64,11 +64,13 @@ BlElement >> stonPostReferenceResolution [
 BlElement >> stonProcessSubObjects: block [
 	"Custom to ignore cycling in BlElement ownership"
 
-	| instanceVariables |
+	| instanceVariables instanceToRemove |
 	instanceVariables := self class stonAllInstVarNames.
+	instanceToRemove := OrderedCollection new.
 	self isLeaf ifTrue: [
-		instanceVariables := instanceVariables reject: [ :each |
-			                     each = #children ] ].
+		instanceToRemove add: #children ].
+	visuals = BlDefaultVisuals uniqueInstance ifTrue: [ instanceToRemove add: #visuals ].
+	instanceVariables := instanceVariables reject: [ :each | instanceToRemove includes: each ]. 
 	instanceVariables do: [ :each |
 		self
 			instVarNamed: each
@@ -76,8 +78,9 @@ BlElement >> stonProcessSubObjects: block [
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
-BlElement >> stonUserDataOn: aIdentityDictionary [.
-	
-	self userData at: #elementId ifPresent: [ :id | aIdentityDictionary at: #elementId put: id ]
-	
+BlElement >> stonUserDataOn: aIdentityDictionary [
+
+	self userData
+		at: #elementId
+		ifPresent: [ :id | aIdentityDictionary at: #elementId put: id ]
 ]
