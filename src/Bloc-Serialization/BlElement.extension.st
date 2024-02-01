@@ -3,7 +3,7 @@ Extension { #name : #BlElement }
 { #category : #'*Bloc-Serialization' }
 BlElement >> isLeaf [
 
-	^ true
+	^ false
 ]
 
 { #category : #'*Bloc-Serialization' }
