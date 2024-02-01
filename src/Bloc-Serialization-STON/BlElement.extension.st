@@ -57,7 +57,15 @@ BlElement >> stonOnWithoutChildren: stonWriter [
 { #category : #'*Bloc-Serialization-STON' }
 BlElement >> stonPostReferenceResolution [
 
-	self childrenDo: [ :child | child parent: self ]
+	self childrenDo: [ :child | child parent: self ].
+
+	self flag: #danger.
+	"For Toplo / should work even if Toplo is not loaded."
+	self userData at: #toTheme ifPresent: [ :aTheme |
+		self userData removeKey: #toTheme.
+		self perform: #toTheme: with: aTheme ].
+	self userData at: #stamps ifPresent: [ :aCollection | aCollection do: [ :assoc | self perform: #addStamp:withValue: with: assoc key with: assoc value ] ].
+	self userData at: #tokens ifPresent: [ :aCollection | aCollection do: [ :assoc | self perform: #addTokenNamed:withValue: with: assoc key with: assoc value ] ]
 ]
 
 { #category : #'*Bloc-Serialization-STON' }
@@ -82,5 +90,20 @@ BlElement >> stonUserDataOn: aIdentityDictionary [
 
 	self userData
 		at: #elementId
-		ifPresent: [ :id | aIdentityDictionary at: #elementId put: id ]
+		ifPresent: [ :id | aIdentityDictionary at: #elementId put: id ].
+
+	self flag: #danger.
+	"For Toplo / should work even if Toplo is not loaded."
+	self userData
+		at: #toTheme
+		ifPresent: [ :aTheme | aIdentityDictionary at: #toTheme put: aTheme ].
+	self userData at: #toStyleStore ifPresent: [ :aToStyleStore |
+		aIdentityDictionary
+			at: #stamps
+			put:
+			((aToStyleStore perform: #rawStampIndex) perform: #allProperties).
+		aIdentityDictionary
+			at: #tokens
+			put: ((aToStyleStore perform: #rawTokenPropertyIndex) perform:
+					 #allProperties) ]
 ]
