@@ -1,6 +1,12 @@
 Extension { #name : #BlElement }
 
 { #category : #'*Bloc-Serialization' }
+BlElement >> isLeaf [
+
+	^ true
+]
+
+{ #category : #'*Bloc-Serialization' }
 BlElement >> serialize [
 
 	^ BlSerializer serialize: self
