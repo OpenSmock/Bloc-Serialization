@@ -17,7 +17,7 @@ BaselineOfBlocSerialization >> baseline: spec [
 
 		spec
 			baseline: 'Bloc'
-			with: [ spec repository: 'github://pharo-graphics/Bloc:dev-1.0/src' ].
+			with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
 
 		"project packages"
 		spec package: 'Bloc-Serialization-STON'.
