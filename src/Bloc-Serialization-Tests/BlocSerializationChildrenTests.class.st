@@ -200,3 +200,40 @@ BlocSerializationChildrenTests >> testNoChildren [
 		on: [ :element | self assert: element children size equals: 0.
 			self assert: element parent equals: nil ]
 ]
+
+{ #category : #tests }
+BlocSerializationChildrenTests >> testShouldNotSerializedChildrenBasic1 [
+
+	| origin e1 e2 e3 element |
+	origin := BlTestShouldNotSerializedChildrenElement new.
+	e1 := BlElement new.
+	e2 := BlElement new.
+	e3 := BlElement new.
+
+	origin addChildren: { 
+			e1.
+			e2.
+			e3 }.
+
+	element := origin serializeThenMaterialize. 
+	self assert: element parent equals: nil.
+	self assert: element children size equals: 0.
+]
+
+{ #category : #tests }
+BlocSerializationChildrenTests >> testShouldNotSerializedChildrenBasic2 [
+
+	| origin e1 e2 e3 element |
+	origin := BlTestShouldNotSerializedChildrenElement new.
+	e1 := BlElement new.
+	e2 := BlElement new.
+	e3 := BlElement new.
+
+	origin addChild: e1.
+	e1 addChild: e2.
+	e2 addChild: e3.
+	
+	element := origin serializeThenMaterialize. 
+	self assert: element parent equals: nil.
+	self assert: element children size equals: 0.
+]

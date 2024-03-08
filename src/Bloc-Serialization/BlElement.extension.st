@@ -11,3 +11,9 @@ BlElement >> serializeThenMaterialize [
 
 	^ BlSerializer materialize: (BlSerializer serialize: self)
 ]
+
+{ #category : #'*Bloc-Serialization' }
+BlElement >> shouldSerializedChildren [
+
+	^ true
+]
