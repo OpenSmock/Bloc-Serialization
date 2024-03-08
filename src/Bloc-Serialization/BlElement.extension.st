@@ -3,6 +3,7 @@ Extension { #name : #BlElement }
 { #category : #'*Bloc-Serialization' }
 BlElement >> isLeaf [
 
+	self deprecated:'use shouldSerializedChildren (inverse boolean)'.
 	^ false
 ]
 
@@ -16,4 +17,10 @@ BlElement >> serialize [
 BlElement >> serializeThenMaterialize [
 
 	^ BlSerializer materialize: (BlSerializer serialize: self)
+]
+
+{ #category : #'*Bloc-Serialization' }
+BlElement >> shouldSerializedChildren [
+
+	^ true
 ]

@@ -15,9 +15,9 @@ BlElement >> stonOn: stonWriter [
 	self stonUserDataOn: copyData.
 	
 	userData := copyData.
-	self isLeaf
-		ifTrue: [ self stonOnWithoutChildren: stonWriter ]
-		ifFalse: [ self stonOnWithChildren: stonWriter ].
+	self shouldSerializedChildren
+		ifFalse: [ self stonOnWithoutChildren: stonWriter ]
+		ifTrue: [ self stonOnWithChildren: stonWriter ].
 	userData := previousData
 ]
 
@@ -75,7 +75,7 @@ BlElement >> stonProcessSubObjects: block [
 	| instanceVariables instanceToRemove |
 	instanceVariables := self class stonAllInstVarNames.
 	instanceToRemove := OrderedCollection new.
-	self isLeaf ifTrue: [
+	self shouldSerializedChildren ifFalse: [
 		instanceToRemove add: #children ].
 	visuals = BlDefaultVisuals uniqueInstance ifTrue: [ instanceToRemove add: #visuals ].
 	instanceVariables := instanceVariables reject: [ :each | instanceToRemove includes: each ]. 
