@@ -1,13 +1,6 @@
 Extension { #name : #BlElement }
 
 { #category : #'*Bloc-Serialization' }
-BlElement >> isLeaf [
-
-	self deprecated:'use shouldSerializedChildren (inverse boolean)'.
-	^ false
-]
-
-{ #category : #'*Bloc-Serialization' }
 BlElement >> serialize [
 
 	^ BlSerializer serialize: self
