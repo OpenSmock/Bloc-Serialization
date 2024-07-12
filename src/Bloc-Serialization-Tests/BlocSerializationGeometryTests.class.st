@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationGeometryTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationGeometryTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testAnnulusSector [
 
 	| origin |
@@ -25,7 +27,7 @@ BlocSerializationGeometryTests >> testAnnulusSector [
 		self assert: element geometry outerRadius equals: 0.9 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testBezierCurve [
 
 	| origin |
@@ -44,7 +46,7 @@ BlocSerializationGeometryTests >> testBezierCurve [
 						           (35 @ 40) }. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testCircle [
 
 	| origin |
@@ -54,7 +56,7 @@ BlocSerializationGeometryTests >> testCircle [
 		self assert: (element geometry isKindOf: BlCircleGeometry) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testEllipse [
 
 	| origin |
@@ -67,7 +69,7 @@ BlocSerializationGeometryTests >> testEllipse [
 		]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testEmpty [
 
 	| origin |
@@ -80,7 +82,7 @@ BlocSerializationGeometryTests >> testEmpty [
  ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testLine [
 
 	| origin |
@@ -94,7 +96,7 @@ BlocSerializationGeometryTests >> testLine [
 		self assert: element geometry to equals: 100 @ 10 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testPolygon [
 
 	| origin |
@@ -132,7 +134,7 @@ BlocSerializationGeometryTests >> testPolygon [
  ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testPolyline [
 
 	| origin |
@@ -151,7 +153,7 @@ BlocSerializationGeometryTests >> testPolyline [
 				(48 @ 36) } ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testRectangle [
 
 	| origin |
@@ -163,7 +165,7 @@ BlocSerializationGeometryTests >> testRectangle [
 		self assert: (element geometry isKindOf: BlRectangleGeometry) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testRoundedRectangle1 [
 
 	| origin |
@@ -179,7 +181,7 @@ BlocSerializationGeometryTests >> testRoundedRectangle1 [
 		self assert: element geometry cornerRadii bottomLeft equals: 5. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testRoundedRectangle2 [
 
 	| origin |
@@ -202,7 +204,7 @@ BlocSerializationGeometryTests >> testRoundedRectangle2 [
 		self assert: element geometry cornerRadii bottomLeft equals: 4 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testSquare [
 
 	| origin |
@@ -214,7 +216,7 @@ BlocSerializationGeometryTests >> testSquare [
 		self assert: (element geometry isKindOf: BlSquareGeometry) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testTriangle1 [
 
 	| origin |
@@ -227,7 +229,7 @@ BlocSerializationGeometryTests >> testTriangle1 [
 		self assert: (element geometry isTop) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testTriangle2 [
 
 	| origin |
@@ -240,7 +242,7 @@ BlocSerializationGeometryTests >> testTriangle2 [
 		self assert: element geometry isBottom ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testTriangle3 [
 
 	| origin |
@@ -253,7 +255,7 @@ BlocSerializationGeometryTests >> testTriangle3 [
 		self assert: element geometry isLeft ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationGeometryTests >> testTriangle4 [
 
 	| origin |

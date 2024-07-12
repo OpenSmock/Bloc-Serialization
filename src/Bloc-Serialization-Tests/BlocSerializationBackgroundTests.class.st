@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationBackgroundTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationBackgroundTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testColor [
 
 	| origin |
@@ -17,7 +19,7 @@ BlocSerializationBackgroundTests >> testColor [
 			equals: (Color red alpha: 0.8) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testImageBackground1 [
 
 	| origin |
@@ -32,7 +34,7 @@ BlocSerializationBackgroundTests >> testImageBackground1 [
 			equals: PolymorphSystemSettings pharoLogoForm bits ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testImageBackground2 [
 
 	| origin |
@@ -48,7 +50,7 @@ BlocSerializationBackgroundTests >> testImageBackground2 [
 		self assert: element background opacity equals: 0.5 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testLinearGradient1 [
 
 	| origin |
@@ -69,7 +71,7 @@ BlocSerializationBackgroundTests >> testLinearGradient1 [
 			equals: 1 -> Color blue ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testLinearGradient2 [
 
 	| origin |
@@ -90,7 +92,7 @@ BlocSerializationBackgroundTests >> testLinearGradient2 [
 			equals: 1 -> Color blue ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testLinearGradient3 [
 
 	| origin |
@@ -112,7 +114,7 @@ BlocSerializationBackgroundTests >> testLinearGradient3 [
 			equals: 1 -> Color blue ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testLinearGradient4 [
 
 	| origin |
@@ -145,7 +147,7 @@ BlocSerializationBackgroundTests >> testLinearGradient4 [
 			equals: 1 -> Color black ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testPaintTransparent [
 
 	| origin |
@@ -157,7 +159,7 @@ BlocSerializationBackgroundTests >> testPaintTransparent [
 		self assert: element background isTransparent equals: true ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testRadailGradient1 [
 
 	| origin |
@@ -180,7 +182,7 @@ BlocSerializationBackgroundTests >> testRadailGradient1 [
 			equals: 1 -> Color blue ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBackgroundTests >> testRadialGradient2 [
 
 	| origin |

@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationBorderTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationBorderTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorder [
 
 	| builder origin |
@@ -23,7 +25,7 @@ BlocSerializationBorderTests >> testBorder [
 			equals: (Color red alpha: 0.8) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderCapButt [
 
 	| builder origin |
@@ -46,7 +48,7 @@ BlocSerializationBorderTests >> testBorderCapButt [
 			equals: BlStrokeLineButtCap ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderCapRound [
 
 	| builder origin |
@@ -69,7 +71,7 @@ BlocSerializationBorderTests >> testBorderCapRound [
 			equals: BlStrokeLineRoundCap ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderCapSquare [
 
 	| builder origin |
@@ -92,7 +94,7 @@ BlocSerializationBorderTests >> testBorderCapSquare [
 			equals: BlStrokeLineSquareCap ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderCustomDashArray [
 
 	| builder origin |
@@ -113,7 +115,7 @@ BlocSerializationBorderTests >> testBorderCustomDashArray [
 		self assert: element border style dashArray equals: #( 2.6 4.2 ) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderCustomDashOffset [
 
 	| builder origin |
@@ -136,7 +138,7 @@ BlocSerializationBorderTests >> testBorderCustomDashOffset [
 		self assert: element border style dashOffset equals: 3.5 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderDashed [
 
 	| builder origin |
@@ -158,7 +160,7 @@ BlocSerializationBorderTests >> testBorderDashed [
 		self assert: element border style dashOffset equals: 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderDashedSmall [
 
 	| builder origin |
@@ -180,7 +182,7 @@ BlocSerializationBorderTests >> testBorderDashedSmall [
 		self assert: element border style dashOffset equals: 0 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderJoinBevel [
 
 	| builder origin |
@@ -203,7 +205,7 @@ BlocSerializationBorderTests >> testBorderJoinBevel [
 			equals: BlStrokeLineBevelJoin ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderJoinMiter [
 
 	| builder origin |
@@ -226,7 +228,7 @@ BlocSerializationBorderTests >> testBorderJoinMiter [
 			equals: BlStrokeLineMiterJoin ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderJoinRound [
 
 	| builder origin |
@@ -250,7 +252,7 @@ BlocSerializationBorderTests >> testBorderJoinRound [
 			equals: BlStrokeLineRoundJoin ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBorderTests >> testBorderSolid [
 
 	| builder origin |

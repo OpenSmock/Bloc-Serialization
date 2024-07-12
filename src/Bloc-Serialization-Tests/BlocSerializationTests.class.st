@@ -1,16 +1,18 @@
 Class {
-	#name : #BlocSerializationTests,
-	#superclass : #TestCase,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationTests',
+	#superclass : 'TestCase',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 BlocSerializationTests >> serializeThenMaterialize: aBlElement [
 
 	^ BlSerializer materialize: (BlSerializer serialize: aBlElement)
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 BlocSerializationTests >> test: aBlElement on: aTestBloc [
 	"This method take a blElement, execute a Bloc with assertions inside (from test implementation) for this blElement. The blElement is serialized and rebuild, the new blElement rebuild is re-tested by the Bloc with assertions to confirm the good serialization process "
 

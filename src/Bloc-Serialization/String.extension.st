@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*Bloc-Serialization' }
+{ #category : '*Bloc-Serialization' }
 String >> materializeAsBlElement [
 
 	^ BlSerializer materialize: self

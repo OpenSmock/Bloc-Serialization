@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationBlRopedTextTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationBlRopedTextTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBlRopedTextTests >> testMultiplesAttributes [
 
 	| origin |
@@ -23,7 +25,7 @@ BlocSerializationBlRopedTextTests >> testMultiplesAttributes [
 				 att class = BlTextForegroundAttribute and: [ att paint = Color red ] ]) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBlRopedTextTests >> testNoAttributes [
 
 	| origin |
@@ -34,7 +36,7 @@ BlocSerializationBlRopedTextTests >> testNoAttributes [
 		on: [ :element | self assert: origin text rope asString equals: 'test' ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationBlRopedTextTests >> testOneAttribute [
 
 	| origin |

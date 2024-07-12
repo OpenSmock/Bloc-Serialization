@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationConstraintsTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationConstraintsTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testHeight [
 
 	| origin |
@@ -18,7 +20,7 @@ BlocSerializationConstraintsTests >> testHeight [
 		self assert: element constraints maxHeight equals: 500 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testMargin1 [
 
 	| origin |
@@ -33,7 +35,7 @@ BlocSerializationConstraintsTests >> testMargin1 [
 		self assert: element margin right equals: 10 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testMargin2 [
 
 	| origin |
@@ -53,7 +55,7 @@ BlocSerializationConstraintsTests >> testMargin2 [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testMargin3 [
 
 	| origin |
@@ -67,7 +69,7 @@ BlocSerializationConstraintsTests >> testMargin3 [
 		self assert: element margin right equals: 10 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testMargin4 [
 
 	| origin |
@@ -86,7 +88,7 @@ BlocSerializationConstraintsTests >> testMargin4 [
 		self assert: element margin right equals: 4 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPadding1 [
 
 	| origin |
@@ -101,7 +103,7 @@ BlocSerializationConstraintsTests >> testPadding1 [
 		self assert: element padding right equals: 10 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPadding2 [
 
 	| origin |
@@ -119,7 +121,7 @@ BlocSerializationConstraintsTests >> testPadding2 [
 		self assert: element padding right equals: 4 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPadding3 [
 
 	| origin |
@@ -133,7 +135,7 @@ BlocSerializationConstraintsTests >> testPadding3 [
 		self assert: element padding right equals: 10 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPadding4 [
 
 	| origin |
@@ -152,7 +154,7 @@ BlocSerializationConstraintsTests >> testPadding4 [
 		self assert: element padding right equals: 4 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPosition1 [
 
 	| origin |
@@ -163,7 +165,7 @@ BlocSerializationConstraintsTests >> testPosition1 [
 		self assert: element constraints position equals: 100 @ 500 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testPosition2 [
 
 	| origin |
@@ -175,7 +177,7 @@ BlocSerializationConstraintsTests >> testPosition2 [
 		self assert: element constraints position equals: 100 @ 500 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testSize [
 
 	| origin |
@@ -185,7 +187,7 @@ BlocSerializationConstraintsTests >> testSize [
 		self assert: element constraints vertical resizer size equals: 20 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationConstraintsTests >> testWidth [
 
 	| origin |

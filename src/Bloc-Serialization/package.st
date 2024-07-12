@@ -1,1 +1,1 @@
-Package { #name : #'Bloc-Serialization' }
+Package { #name : 'Bloc-Serialization' }

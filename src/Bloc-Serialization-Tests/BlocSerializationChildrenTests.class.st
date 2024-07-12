@@ -1,10 +1,12 @@
 Class {
-	#name : #BlocSerializationChildrenTests,
-	#superclass : #BlocSerializationTests,
-	#category : #'Bloc-Serialization-Tests-Core'
+	#name : 'BlocSerializationChildrenTests',
+	#superclass : 'BlocSerializationTests',
+	#category : 'Bloc-Serialization-Tests-Core',
+	#package : 'Bloc-Serialization-Tests',
+	#tag : 'Core'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildren [
 
 	| origin e1 e2 e3 |
@@ -32,7 +34,7 @@ BlocSerializationChildrenTests >> testChildren [
 		self assert: (element childAt: 3) isLastChild equals: true ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildren1 [
 
 	| origin e1 e2 e3 |
@@ -60,7 +62,7 @@ BlocSerializationChildrenTests >> testChildren1 [
 		self assert: (element childAt: 3) isLastChild equals: true ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildren2 [
 
 	| origin e1 e2 e3 |
@@ -97,7 +99,7 @@ BlocSerializationChildrenTests >> testChildren2 [
 		self assert: (element childAt: 3) constraints vertical resizer size equals: 600. ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildren3 [
 
 	| origin e1 e2 e3 |
@@ -130,7 +132,7 @@ BlocSerializationChildrenTests >> testChildren3 [
 		self assert: (element childAt: 3) background paint color equals: Color yellow ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildrenBasic1 [
 
 	| origin e1 e2 e3 |
@@ -158,7 +160,7 @@ BlocSerializationChildrenTests >> testChildrenBasic1 [
 		self assert: (element childAt: 3) isLastChild equals: true ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testChildrenBasic2 [
 
 	| origin e1 e2 e3 |
@@ -189,7 +191,7 @@ BlocSerializationChildrenTests >> testChildrenBasic2 [
 			equals: ((element childAt: 1) childAt: 1) ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testNoChildren [
 
 	| origin |
@@ -201,7 +203,7 @@ BlocSerializationChildrenTests >> testNoChildren [
 			self assert: element parent equals: nil ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testShouldNotSerializedChildrenBasic1 [
 
 	| origin e1 e2 e3 element |
@@ -220,7 +222,7 @@ BlocSerializationChildrenTests >> testShouldNotSerializedChildrenBasic1 [
 	self assert: element children size equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BlocSerializationChildrenTests >> testShouldNotSerializedChildrenBasic2 [
 
 	| origin e1 e2 e3 element |
