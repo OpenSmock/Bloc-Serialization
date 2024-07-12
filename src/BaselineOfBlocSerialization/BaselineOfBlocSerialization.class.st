@@ -1,11 +1,10 @@
 Class {
-	#name : 'BaselineOfBlocSerialization',
-	#superclass : 'BaselineOf',
-	#category : 'BaselineOfBlocSerialization',
-	#package : 'BaselineOfBlocSerialization'
+	#name : #BaselineOfBlocSerialization,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfBlocSerialization
 }
 
-{ #category : 'baselines' }
+{ #category : #baselines }
 BaselineOfBlocSerialization >> baseline: spec [
 
 	<baseline>
@@ -13,9 +12,9 @@ BaselineOfBlocSerialization >> baseline: spec [
 		spec
 			baseline: 'Ston'
 			with: [ spec repository: 'github://svenvc/ston/repository' ].
-	
+
 		spec
-			baseline: 'Stash'
+			baseline: 'StashSerialization'
 			with: [ spec repository: 'github://Nyan11/Stash/src' ].
 
 		spec
