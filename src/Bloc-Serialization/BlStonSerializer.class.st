@@ -2,16 +2,13 @@
 Serailizer class for Bloc
 "
 Class {
-	#name : #BlSerializer,
+	#name : #BlStonSerializer,
 	#superclass : #Object,
-	#classInstVars : [
-		'serializer'
-	],
 	#category : #'Bloc-Serialization-Core'
 }
 
 { #category : #serialization }
-BlSerializer class >> materialize: aString [
+BlStonSerializer class >> materialize: aString [
 	"Materialize a String into a BlElement and return it. Default materializer is STON."
 	| blElement |
 	aString isString not ifTrue:[ BlocMaterializationError signal: 'Cannot materialize a no String object into BlElement' ].
@@ -19,42 +16,26 @@ BlSerializer class >> materialize: aString [
 	[ blElement := STON fromString: aString ] onErrorDo: [ :e | BlocMaterializationError signal: 'Cannot support Bloc materialization of this String (', e asString, ')' ].
 	blElement ifNil:[ BlocMaterializationError signal: 'Bloc materialization result is nil' ].
 
-	^ blElement.
-]
-
-{ #category : #initialization }
-BlSerializer class >> reset [
-
-	<script>
-	serializer := nil
+	^ blElement
 ]
 
 { #category : #serialization }
-BlSerializer class >> serialize: aBlElementOrABlElementsCollection [
-	"Serialize a BlElement or a list of BlElements into a String using a serializer. Default serializer is STON."
-
-	^ self serialize: aBlElementOrABlElementsCollection with: self serializer
-]
-
-{ #category : #serialization }
-BlSerializer class >> serialize: aBlElementOrABlElementsCollection with: aBlSerializer [
+BlStonSerializer class >> serialize: aBlElementOrABlElementsCollection [
 	"Serialize a BlElement or a list of BlElements into a String using a serializer. Default serializer is STON."
 
 	| string |
-	string := aBlSerializer serialize:
-		          aBlElementOrABlElementsCollection.
-	^ '"<1s>"<r><2s>' expandMacrosWith: aBlSerializer name with: string
-]
+	aBlElementOrABlElementsCollection isCollection 
+		ifTrue: [ self verifyCollection: aBlElementOrABlElementsCollection ] 
+		ifFalse: [ self verifyElement: aBlElementOrABlElementsCollection ].
+	
+	"Try to serialize and catch an error into a BlocSerialization error"
+	[ string := STON toStringPretty: aBlElementOrABlElementsCollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
 
-{ #category : #accessing }
-BlSerializer class >> serializer [
-
-	serializer ifNil: [ serializer := BlStashSerializer ].
-	^ serializer
+	^ string
 ]
 
 { #category : #'as yet unclassified' }
-BlSerializer class >> verifyCollection: aCollection [
+BlStonSerializer class >> verifyCollection: aCollection [
 
 	"Check if the collection is supported : can contains some BlElements"
 	aCollection isString ifTrue:[ 
@@ -69,7 +50,7 @@ BlSerializer class >> verifyCollection: aCollection [
 ]
 
 { #category : #'as yet unclassified' }
-BlSerializer class >> verifyElement: aBlElement [
+BlStonSerializer class >> verifyElement: aBlElement [
 
 	(aBlElement isKindOf: BlElement) ifFalse: [
 		BlocSerializationError signal:
@@ -77,5 +58,5 @@ BlSerializer class >> verifyElement: aBlElement [
 ]
 
 { #category : #'see class side' }
-BlSerializer >> seeClassSide [
+BlStonSerializer >> seeClassSide [
 ]

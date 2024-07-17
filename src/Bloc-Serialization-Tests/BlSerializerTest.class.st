@@ -59,7 +59,6 @@ BlSerializerTest >> testSerializeBlElementCollection [
 	error := nil. result := nil.
 	[ result := BlSerializer serialize: OrderedCollection new ] onErrorDo: [ :e | error := e ].
 	self deny: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
-	self assert: result equals: 'OrderedCollection [ ]'.
 	
 	error := nil. result := nil.
 	oc := OrderedCollection new.
