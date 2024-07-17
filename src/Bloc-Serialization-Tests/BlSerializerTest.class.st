@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #tests }
+BlSerializerTest >> testMaterialize [
+
+	| error blElement |
+	error := nil.
+
+	BlFakeSerializer resetForTest.
+	self assert: BlFakeSerializer materializeCount equals: 0.
+	[ blElement := BlSerializer materialize: '"BlFakeSerializer"' ] onErrorDo: [ :e |
+		error := e ].
+	self assert: BlFakeSerializer materializeCount equals: 1.
+	self assert: error equals: nil.
+]
+
+{ #category : #tests }
 BlSerializerTest >> testMaterializeEmptyString [
 
 	| error blElement |
