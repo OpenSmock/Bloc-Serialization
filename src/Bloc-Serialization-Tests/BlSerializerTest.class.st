@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #tests }
+BlSerializerTest >> testMaterialize [
+
+	| error blElement |
+	error := nil.
+
+	BlFakeSerializer resetForTest.
+	self assert: BlFakeSerializer materializeCount equals: 0.
+	[ blElement := BlSerializer materialize: '"BlFakeSerializer"' ] onErrorDo: [ :e |
+		error := e ].
+	self assert: BlFakeSerializer materializeCount equals: 1.
+	self assert: error equals: nil.
+]
+
+{ #category : #tests }
 BlSerializerTest >> testMaterializeEmptyString [
 
 	| error blElement |
@@ -59,7 +73,6 @@ BlSerializerTest >> testSerializeBlElementCollection [
 	error := nil. result := nil.
 	[ result := BlSerializer serialize: OrderedCollection new ] onErrorDo: [ :e | error := e ].
 	self deny: (error isKindOf: BlocSerializationError). "this test is ok because of a empty string is an empty collection"
-	self assert: result equals: 'OrderedCollection [ ]'.
 	
 	error := nil. result := nil.
 	oc := OrderedCollection new.

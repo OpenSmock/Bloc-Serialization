@@ -19,7 +19,7 @@ BlElementSerializationTests >> testSerializeThenMaterialize [
 	element := BlElement new.
 	newElement := element serializeThenMaterialize.
 	
-	self assert: element class equals: newElement class.
+	self assert: element class equals: newElement class
 ]
 
 { #category : #tests }
@@ -27,5 +27,5 @@ BlElementSerializationTests >> testShouldSerializedChildren [
 
 	| element |
 	element := BlElement new.
-	self assert: element shouldSerializedChildren.
+	self assert: element shouldSerializedChildren
 ]
