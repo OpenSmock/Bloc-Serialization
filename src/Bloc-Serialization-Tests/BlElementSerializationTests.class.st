@@ -9,7 +9,7 @@ BlElementSerializationTests >> testSerialize [
 
 	| string |
 	string := BlElement new serialize.
-	self assert: string isString
+	self assert: string isString.
 ]
 
 { #category : #tests }

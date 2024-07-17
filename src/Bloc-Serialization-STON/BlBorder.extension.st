@@ -5,5 +5,5 @@ BlBorder class >> fromSton: stonReader [
 
 	^ self basicNew
 		  fromSton: stonReader;
-		  yourself
+		  yourself.
 ]

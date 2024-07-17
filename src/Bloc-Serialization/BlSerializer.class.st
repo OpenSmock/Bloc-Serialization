@@ -16,7 +16,7 @@ BlSerializer class >> materialize: aString [
 	[ blElement := STON fromString: aString ] onErrorDo: [ :e | BlocMaterializationError signal: 'Cannot support Bloc materialization of this String (', e asString, ')' ].
 	blElement ifNil:[ BlocMaterializationError signal: 'Bloc materialization result is nil' ].
 
-	^ blElement
+	^ blElement.
 ]
 
 { #category : #serialization }

@@ -28,5 +28,5 @@ BaselineOfBlocSerialization >> baseline: spec [
 			package: 'Bloc-Serialization-Tests'
 			with: [ spec requires: #( 'Bloc-Serialization' ) ].
 
-	]
+	].
 ]
