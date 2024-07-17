@@ -4,57 +4,21 @@ Serailizer class for Bloc
 Class {
 	#name : #BlStonSerializer,
 	#superclass : #Object,
+	#traits : 'TBlSerializer',
+	#classTraits : 'TBlSerializer classTrait',
 	#category : #'Bloc-Serialization-Core'
 }
 
-{ #category : #serialization }
-BlStonSerializer class >> materialize: aString [
-	"Materialize a String into a BlElement and return it. Default materializer is STON."
-	| blElement |
-	aString isString not ifTrue:[ BlocMaterializationError signal: 'Cannot materialize a no String object into BlElement' ].
-	"Try to materialize and catch an error into a BlocMaterialization error"
-	[ blElement := STON fromString: aString ] onErrorDo: [ :e | BlocMaterializationError signal: 'Cannot support Bloc materialization of this String (', e asString, ')' ].
-	blElement ifNil:[ BlocMaterializationError signal: 'Bloc materialization result is nil' ].
+{ #category : #'as yet unclassified' }
+BlStonSerializer class >> materializeImplementation: anObject [
 
-	^ blElement
-]
-
-{ #category : #serialization }
-BlStonSerializer class >> serialize: aBlElementOrABlElementsCollection [
-	"Serialize a BlElement or a list of BlElements into a String using a serializer. Default serializer is STON."
-
-	| string |
-	aBlElementOrABlElementsCollection isCollection 
-		ifTrue: [ self verifyCollection: aBlElementOrABlElementsCollection ] 
-		ifFalse: [ self verifyElement: aBlElementOrABlElementsCollection ].
-	
-	"Try to serialize and catch an error into a BlocSerialization error"
-	[ string := STON toStringPretty: aBlElementOrABlElementsCollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
-
-	^ string
+	^ STON fromString: anObject
 ]
 
 { #category : #'as yet unclassified' }
-BlStonSerializer class >> verifyCollection: aCollection [
+BlStonSerializer class >> serializeImplementation: anObject [
 
-	"Check if the collection is supported : can contains some BlElements"
-	aCollection isString ifTrue:[ 
-		BlocSerializationError signal: 'Cannot serialize a String'
-	].
-
-	aCollection isDictionary ifTrue:[
-		BlocSerializationError signal: 'Cannot serialize a Dictionary'	
-	].
-
-	aCollection do: [ :each | self verifyElement: each ]
-]
-
-{ #category : #'as yet unclassified' }
-BlStonSerializer class >> verifyElement: aBlElement [
-
-	(aBlElement isKindOf: BlElement) ifFalse: [
-		BlocSerializationError signal:
-			'Cannot serialize an objet which is not from BlElement class hierarchy' ]
+	^ STON toStringPretty: anObject
 ]
 
 { #category : #'see class side' }
