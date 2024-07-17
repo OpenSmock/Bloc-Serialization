@@ -8,12 +8,14 @@ Class {
 BaselineOfBlocSerialization >> baseline: spec [
 
 	<baseline>
-	spec for: #common do: [
-
-		"dependencies"
+	spec for: #common do: [ "dependencies"
 		spec
 			baseline: 'Ston'
 			with: [ spec repository: 'github://svenvc/ston/repository' ].
+
+		spec
+			baseline: 'StashSerialization'
+			with: [ spec repository: 'github://Nyan11/Stash/src' ].
 
 		spec
 			baseline: 'Bloc'
@@ -21,12 +23,10 @@ BaselineOfBlocSerialization >> baseline: spec [
 
 		"project packages"
 		spec package: 'Bloc-Serialization-STON'.
-		spec
-			package: 'Bloc-Serialization'
-			with: [ spec requires: #( 'Bloc' 'Bloc-Serialization-STON' 'Ston' ) ].
+		spec package: 'Bloc-Serialization' with: [
+			spec requires: #( 'Bloc' 'Bloc-Serialization-STON'
+			   'Ston' 'StashSerialization' ) ].
 		spec
 			package: 'Bloc-Serialization-Tests'
-			with: [ spec requires: #( 'Bloc-Serialization' ) ].
-
-	].
+			with: [ spec requires: #( 'Bloc-Serialization' ) ] ]
 ]
