@@ -1,6 +1,6 @@
 Trait {
 	#name : #TBlSerializer,
-	#category : #'Bloc-Serialization'
+	#category : #'Bloc-Serialization-Core'
 }
 
 { #category : #serialization }
@@ -9,7 +9,7 @@ TBlSerializer classSide >> materialize: aString [
 	| blElement |
 	aString isString not ifTrue:[ BlocMaterializationError signal: 'Cannot materialize a no String object into BlElement' ].
 	"Try to materialize and catch an error into a BlocMaterialization error"
-	[ blElement := STON fromString: aString ] onErrorDo: [ :e | BlocMaterializationError signal: 'Cannot support Bloc materialization of this String (', e asString, ')' ].
+	[ blElement := self materializeImplementation: aString ] onErrorDo: [ :e | BlocMaterializationError signal: 'Cannot support Bloc materialization of this String (', e asString, ')' ].
 	blElement ifNil:[ BlocMaterializationError signal: 'Bloc materialization result is nil' ].
 
 	^ blElement
@@ -25,7 +25,7 @@ TBlSerializer classSide >> serialize: aBlElementOrABlElementsCollection [
 		ifFalse: [ self verifyElement: aBlElementOrABlElementsCollection ].
 	
 	"Try to serialize and catch an error into a BlocSerialization error"
-	[ string := STON toStringPretty: aBlElementOrABlElementsCollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
+	[ string := self serializeImplementation: aBlElementOrABlElementsCollection ] onErrorDo: [ :e | BlocSerializationError signal: 'Cannot support serialization of this BlElement (', e asString, ')' ].
 
 	^ string
 ]
