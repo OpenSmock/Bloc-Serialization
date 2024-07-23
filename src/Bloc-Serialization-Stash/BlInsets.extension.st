@@ -1,7 +1,7 @@
 Extension { #name : #BlInsets }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlInsets >> asStashContructor [
+BlInsets >> asStashConstructor [
 
 	self isUniform ifTrue: [
 		self left = 0

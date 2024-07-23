@@ -1,7 +1,7 @@
 Extension { #name : #BlVisibilityGone }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlVisibilityGone >> asStashContructor [
+BlVisibilityGone >> asStashConstructor [
 
 	^ 'BlVisibility gone'
 ]

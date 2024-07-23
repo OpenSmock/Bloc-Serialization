@@ -1,7 +1,7 @@
 Extension { #name : #BlStrokeLineBevelJoin }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlStrokeLineBevelJoin >> asStashContructor [
+BlStrokeLineBevelJoin >> asStashConstructor [
 
 	^ 'BlStrokeLineJoin bevel'
 ]

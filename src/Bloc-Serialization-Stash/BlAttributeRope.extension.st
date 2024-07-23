@@ -1,7 +1,7 @@
 Extension { #name : #BlAttributeRope }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlAttributeRope >> asStashContructor [
+BlAttributeRope >> asStashConstructor [
 
 	^ self class printString
 ]
