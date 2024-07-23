@@ -6,5 +6,5 @@ BlMatrixTransformation >> stashAccessors [
 	<stashAccessors>
 	^ { ([ :transform |
 	   'matrix: (<1s>)' expandMacrosWith:
-		   transform matrix asStashContructor ] -> self) onlySetOnStash }
+		   transform matrix asStashConstructor ] -> self) onlySetOnStash }
 ]

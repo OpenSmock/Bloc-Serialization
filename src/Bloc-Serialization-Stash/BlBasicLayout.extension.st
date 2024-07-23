@@ -1,7 +1,7 @@
 Extension { #name : #BlBasicLayout }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlBasicLayout >> asStashContructor [
+BlBasicLayout >> asStashConstructor [
 
 	^ 'BlBasicLayout uniqueInstance' 
 ]

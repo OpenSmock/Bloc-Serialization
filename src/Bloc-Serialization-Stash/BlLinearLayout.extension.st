@@ -25,7 +25,7 @@ BlLinearLayout >> allSetterAndGettersForMyStash [
 ]
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlLinearLayout >> asStashContructor [
+BlLinearLayout >> asStashConstructor [
 
 	self isVertical ifTrue: [ ^ 'BlLinearLayout vertical' ].
 	^ 'BlLinearLayout horizontal' 

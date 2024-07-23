@@ -1,7 +1,7 @@
 Extension { #name : #BlVisibilityVisible }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlVisibilityVisible >> asStashContructor [
+BlVisibilityVisible >> asStashConstructor [
 
 	^ 'BlVisibility visible'
 ]

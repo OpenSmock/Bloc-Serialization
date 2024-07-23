@@ -11,11 +11,11 @@ BlRotationTransformation >> stashAccessors [
 	self axis = BlVector zAxis
 		ifFalse: [
 			allSetterAndGettersForMyStash add: ([ :transform |
-				 'rotateBy: ' , transform angle asStashContructor , 'around:'
-				 , transform axis asStashContructor ] -> self) onlySetOnStash ]
+				 'rotateBy: ' , transform angle asStashConstructor , 'around:'
+				 , transform axis asStashConstructor ] -> self) onlySetOnStash ]
 		ifTrue: [
 			allSetterAndGettersForMyStash add:
-				([ :transform | 'rotateBy: ' , transform angle asStashContructor ]
+				([ :transform | 'rotateBy: ' , transform angle asStashConstructor ]
 				 -> self) onlySetOnStash ].
 	^ allSetterAndGettersForMyStash
 ]

@@ -1,7 +1,7 @@
 Extension { #name : #BlFocusabilityIgnore }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlFocusabilityIgnore >> asStashContructor [
+BlFocusabilityIgnore >> asStashConstructor [
 
 	^ 'BlFocusability ignore'
 ]

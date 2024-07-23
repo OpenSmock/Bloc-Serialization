@@ -1,7 +1,7 @@
 Extension { #name : #BlTriangleGeometry }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlTriangleGeometry >> asStashContructor [
+BlTriangleGeometry >> asStashConstructor [
 
 	self isTop ifTrue: [ ^ 'BlTriangleGeometry new beTop' ].
 	self isBottom ifTrue: [ ^ 'BlTriangleGeometry new beBottom' ].

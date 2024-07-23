@@ -1,7 +1,7 @@
 Extension { #name : #BlOutskirtsInside }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlOutskirtsInside >> asStashContructor [
+BlOutskirtsInside >> asStashConstructor [
 
 	^ 'BlOutskirts inside'
 ]

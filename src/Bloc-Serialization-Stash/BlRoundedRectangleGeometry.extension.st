@@ -1,7 +1,7 @@
 Extension { #name : #BlRoundedRectangleGeometry }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlRoundedRectangleGeometry >> asStashContructor [
+BlRoundedRectangleGeometry >> asStashConstructor [
 
 	(self cornerRadii topLeft = self cornerRadii bottomRight and: [
 		 self cornerRadii topLeft = self cornerRadii topRight and: [

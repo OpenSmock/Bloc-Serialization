@@ -1,7 +1,7 @@
 Extension { #name : #BlStrokeLineRoundJoin }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlStrokeLineRoundJoin >> asStashContructor [
+BlStrokeLineRoundJoin >> asStashConstructor [
 
 	^ 'BlStrokeLineJoin round'
 ]

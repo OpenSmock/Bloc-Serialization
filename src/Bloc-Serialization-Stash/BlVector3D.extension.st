@@ -1,7 +1,7 @@
 Extension { #name : #BlVector3D }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlVector3D >> asStashContructor [
+BlVector3D >> asStashConstructor [
 
 	self = BlVector xAxis ifTrue: [ ^ 'BlVector xAxis' ].
 	self = BlVector yAxis ifTrue: [ ^ 'BlVector yAxis' ].

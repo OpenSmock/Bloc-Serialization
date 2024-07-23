@@ -16,7 +16,7 @@ BlFlowLayout >> allSetterAndGettersForMyStash [
 ]
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlFlowLayout >> asStashContructor [
+BlFlowLayout >> asStashConstructor [
 
 	self orientation isVertical ifTrue: [ ^ 'BlFlowLayout vertical' ].
 	^ 'BlFlowLayout horizontal'
