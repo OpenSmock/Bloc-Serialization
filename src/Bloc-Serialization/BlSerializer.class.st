@@ -18,20 +18,21 @@ BlSerializer class >> allSerializer [
 ]
 
 { #category : #serialization }
-BlSerializer class >> materialize: aString [
+BlSerializer class >> materialize: anObject [
 
 	| serializerClassName serializerClass |
-	aString ifEmpty: [ ^ BlocMaterializationError new signal ].
+	(anObject isKindOf: BlElement) ifTrue: [ ^ anObject ].
+	anObject ifEmpty: [ ^ BlocMaterializationError new signal ].
 
-	aString first = $" ifFalse: [
-		^ self unknownMaterializerFor: aString ].
+	anObject first = $" ifFalse: [
+		^ self unknownMaterializerFor: anObject ].
 
-	serializerClassName := aString lines first allButFirst allButLast.
+	serializerClassName := anObject lines first allButFirst allButLast.
 	serializerClass := Smalltalk environment classNamed:
 		                   serializerClassName.
-	serializerClass ifNil: [ ^ self unknownMaterializerFor: aString ].
+	serializerClass ifNil: [ ^ self unknownMaterializerFor: anObject ].
 
-	^ serializerClass materialize: ('' join: aString lines allButFirst)
+	^ serializerClass materialize: ('' join: anObject lines allButFirst)
 ]
 
 { #category : #initialization }
