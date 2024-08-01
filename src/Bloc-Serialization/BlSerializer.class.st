@@ -4,7 +4,6 @@ Serailizer class for Bloc
 Class {
 	#name : #BlSerializer,
 	#superclass : #Object,
-	#traits : 'TBlSerializer',
 	#classTraits : 'TBlSerializer classTrait',
 	#classInstVars : [
 		'serializer'
@@ -12,17 +11,26 @@ Class {
 	#category : #'Bloc-Serialization-Core'
 }
 
+{ #category : #'as yet unclassified' }
+BlSerializer class >> allSerializer [
+
+	^ TBlSerializer users
+]
+
 { #category : #serialization }
 BlSerializer class >> materialize: aString [
-	"Materialize a String into a BlElement and return it. Default materializer is STON."
 
 	| serializerClassName serializerClass |
 	aString ifEmpty: [ ^ BlocMaterializationError new signal ].
+
 	aString first = $" ifFalse: [
-		^ BlStonSerializer materialize: aString ].
+		^ self unknownMaterializerFor: aString ].
+
 	serializerClassName := aString lines first allButFirst allButLast.
 	serializerClass := Smalltalk environment classNamed:
 		                   serializerClassName.
+	serializerClass ifNil: [ ^ self unknownMaterializerFor: aString ].
+
 	^ serializerClass materialize: ('' join: aString lines allButFirst)
 ]
 
@@ -55,6 +63,16 @@ BlSerializer class >> serializer [
 
 	serializer ifNil: [ serializer := BlStashSerializer ].
 	^ serializer
+]
+
+{ #category : #serialization }
+BlSerializer class >> unknownMaterializerFor: aString [
+
+	self allSerializer do: [ :each |
+		[ ^ each materialize: aString ]
+			on: BlocMaterializationError
+			do: [  ] ].
+	BlocMaterializationError new signal.
 ]
 
 { #category : #'see class side' }
