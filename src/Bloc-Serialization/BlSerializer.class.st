@@ -72,7 +72,7 @@ BlSerializer class >> unknownMaterializerFor: aString [
 		[ ^ each materialize: aString ]
 			on: BlocMaterializationError
 			do: [  ] ].
-	BlocMaterializationError new signal.
+	BlocMaterializationError signal: 'Could not find a Serializer.'
 ]
 
 { #category : #'see class side' }
