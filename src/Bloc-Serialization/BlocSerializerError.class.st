@@ -1,5 +1,5 @@
 Class {
 	#name : #BlocSerializerError,
 	#superclass : #Error,
-	#category : #'Bloc-Serialization-Exception'
+	#category : #'Bloc-Serialization-Core'
 }

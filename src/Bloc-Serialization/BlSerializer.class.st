@@ -4,7 +4,6 @@ Serailizer class for Bloc
 Class {
 	#name : #BlSerializer,
 	#superclass : #Object,
-	#traits : 'TBlSerializer',
 	#classTraits : 'TBlSerializer classTrait',
 	#classInstVars : [
 		'serializer'
@@ -12,18 +11,28 @@ Class {
 	#category : #'Bloc-Serialization-Core'
 }
 
+{ #category : #'as yet unclassified' }
+BlSerializer class >> allSerializer [
+
+	^ TBlSerializer users
+]
+
 { #category : #serialization }
-BlSerializer class >> materialize: aString [
-	"Materialize a String into a BlElement and return it. Default materializer is STON."
+BlSerializer class >> materialize: anObject [
 
 	| serializerClassName serializerClass |
-	aString ifEmpty: [ ^ BlocMaterializationError new signal ].
-	aString first = $" ifFalse: [
-		^ BlStonSerializer materialize: aString ].
-	serializerClassName := aString lines first allButFirst allButLast.
+	(anObject isKindOf: BlElement) ifTrue: [ ^ anObject ].
+	anObject ifEmpty: [ ^ BlocMaterializationError new signal ].
+
+	anObject first = $" ifFalse: [
+		^ self unknownMaterializerFor: anObject ].
+
+	serializerClassName := anObject lines first allButFirst allButLast.
 	serializerClass := Smalltalk environment classNamed:
 		                   serializerClassName.
-	^ serializerClass materialize: ('' join: aString lines allButFirst)
+	serializerClass ifNil: [ ^ self unknownMaterializerFor: anObject ].
+
+	^ serializerClass materialize: ('' join: anObject lines allButFirst)
 ]
 
 { #category : #initialization }
@@ -55,6 +64,16 @@ BlSerializer class >> serializer [
 
 	serializer ifNil: [ serializer := BlStashSerializer ].
 	^ serializer
+]
+
+{ #category : #serialization }
+BlSerializer class >> unknownMaterializerFor: aString [
+
+	self allSerializer do: [ :each |
+		[ ^ each materialize: aString ]
+			on: BlocMaterializationError
+			do: [  ] ].
+	BlocMaterializationError signal: 'Could not find a Serializer.'
 ]
 
 { #category : #'see class side' }
