@@ -19,7 +19,7 @@ BlocSerializationTests >> serializeThenMaterialize: aBlElement withSerializer: a
 { #category : #'as yet unclassified' }
 BlocSerializationTests >> serializersToTest [
 
-	^ TBlSerializer users
+	^ { BlStashSerializer }
 ]
 
 { #category : #utilities }

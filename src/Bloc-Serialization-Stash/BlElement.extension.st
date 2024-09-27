@@ -36,10 +36,8 @@ BlElement >> allSetterAndGettersForMyStashIdentifier [
 BlElement >> allSetterAndGettersForMyStashLayout [
 
 	<stashAccessors>
-	self layout == self defaultLayout ifFalse: [
-		^ { #layout } ].
+	self layout = self defaultLayout ifFalse: [ ^ { #layout } ].
 	^ {  }
-	
 ]
 
 { #category : #'*Bloc-Serialization-Stash' }
