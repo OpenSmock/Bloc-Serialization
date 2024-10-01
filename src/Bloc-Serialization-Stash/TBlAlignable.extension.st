@@ -1,20 +1,30 @@
 Extension { #name : #TBlAlignable }
 
 { #category : #'*Bloc-Serialization-Stash' }
-TBlAlignable >> allSetterAndGettersOfTraitForMyStash: anObject [
+TBlAlignable >> defaultStashAlignementTest [
 
-	^ { ([ :alignement |
-	   | val |
-	   val := #alignNone.
-	   alignement isAlignTopLeft ifTrue: [ val := #alignTopLeft ].
-	   alignement isAlignTopCenter ifTrue: [ val := #alignTopCenter ].
-	   alignement isAlignTopRight ifTrue: [ val := #alignTopRight ].
-	   alignement isAlignCenterLeft ifTrue: [ val := #alignCenterLeft ].
-	   alignement isAlignCenter ifTrue: [ val := #alignCenter ].
-	   alignement isAlignCenterRight ifTrue: [ val := #alignCenterRight ].
-	   alignement isAlignBottomLeft ifTrue: [ val := #alignBottomLeft ].
-	   alignement isAlignBottomCenter ifTrue: [
-		   val := #alignBottomCenter ].
-	   alignement isAlignBottomRight ifTrue: [ val := #alignBottomRight ].
-	   val ] -> self) onlySetOnStash }
+	^ (self verticalAlignment == self defaultVerticalAlignment and: [
+		 self horizontalAlignment == self defaultHorizontalAlignment ])
+]
+
+{ #category : #'*Bloc-Serialization-Stash' }
+TBlAlignable >> stashAccessorForTBlAlignable [
+
+	<stashAccessors>
+	self defaultStashAlignementTest ifTrue: [ ^ {  } ]. 
+	self isAlignTopLeft ifTrue: [ ^ { #alignTopLeft onlySetOnStash } ].
+	self isAlignTopCenter ifTrue: [ ^ { #alignTopCenter onlySetOnStash } ].
+	self isAlignTopRight ifTrue: [ ^ { #alignTopRight onlySetOnStash } ].
+	self isAlignCenterLeft ifTrue: [
+		^ { #alignCenterLeft onlySetOnStash } ].
+	self isAlignCenter ifTrue: [ ^ { #alignCenter onlySetOnStash } ].
+	self isAlignCenterRight ifTrue: [
+		^ { #alignCenterRight onlySetOnStash } ].
+	self isAlignBottomLeft ifTrue: [
+		^ { #alignBottomLeft onlySetOnStash } ].
+	self isAlignBottomCenter ifTrue: [
+		^ { #alignBottomCenter onlySetOnStash } ].
+	self isAlignBottomRight ifTrue: [
+		^ { #alignBottomRight onlySetOnStash } ].
+	^ {  }
 ]

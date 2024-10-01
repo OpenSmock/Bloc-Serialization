@@ -1,7 +1,9 @@
 Extension { #name : #BlAffineCompositeTransformation }
 
 { #category : #'*Bloc-Serialization-Stash' }
-BlAffineCompositeTransformation >> allSetterAndGettersForMyStash [ 
+BlAffineCompositeTransformation >> stashAccessors [
 
-	^ self transformations flatCollect: [ :each | each allSetterAndGettersForMyStash ]
+	<stashAccessors>
+	^ self transformations flatCollect: [ :each |
+		  each allSetterAndGettersForMyStash ]
 ]
