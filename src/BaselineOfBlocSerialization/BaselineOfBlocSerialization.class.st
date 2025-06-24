@@ -31,9 +31,9 @@ BaselineOfBlocSerialization >> dependency: spec [
 
 	spec
 		baseline: 'StashSerialization'
-		with: [ spec repository: 'github://Nyan11/Stash/src' ].
+		with: [ spec repository: 'github://OpenSmock/Stash/src' ].
 
 	spec
 		baseline: 'Bloc'
-		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
+		with: [ spec repository: 'github://OpenSmock/Bloc:dev/src' ].
 ]
