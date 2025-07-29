@@ -27,7 +27,7 @@ jobs:
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
 
-      - name: Run ${{ matrix.ston == '.smalltalkci.default.ston' && 'Full' || 'Core' }} tests
+      - name: Run ${{ matrix.ston == '.smalltalkci.default.ston' }} tests
         run: smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
         shell: bash
         timeout-minutes: 30
