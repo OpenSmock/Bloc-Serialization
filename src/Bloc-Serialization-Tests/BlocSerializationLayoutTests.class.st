@@ -20,7 +20,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest1 [
 
 	| origin |
 	origin := BlFrameLayoutChildrenTest new
-		          testChildElementWithExactSize100per50.
+		          testChildElementWithExactExtent100per50.
 	self
 		test: origin
 		on: [ :element | 
@@ -34,7 +34,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest2 [
 
 	| origin |
 	origin := BlFrameLayoutChildrenTest new
-		          testParentWithFrameLayoutAndFixedSize.
+		          testParentWithFrameLayoutAndFixedExtent.
 	self
 		test: origin
 		on: [ :element | 
@@ -46,7 +46,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutChildrenTest3 [
 
 	| origin |
 	origin := BlFrameLayoutChildrenTest new
-		          testParentWithFrameLayoutAndFixedSize300per250.
+		          testParentWithFrameLayoutAndFixedExtent300per250.
 	self
 		test: origin
 		on: [ :element | 
@@ -64,7 +64,7 @@ BlocSerializationLayoutTests >> testBlFrameLayoutMultipleChildrenTestTest1 [
 
 	| origin |
 	origin := BlFrameLayoutMultipleChildrenTest new
-		          testChildElementWithExactSize140per140.
+		          testChildElementWithExactExtent140per140.
 	self test: origin on: [ :element | 
 		self assert: element position equals: 0 @ 0.
 		self assert: element extent equals: 0 @ 0.
