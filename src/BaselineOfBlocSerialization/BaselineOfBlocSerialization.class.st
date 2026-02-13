@@ -25,6 +25,7 @@ BaselineOfBlocSerialization >> baseline: spec [
 { #category : #accessing }
 BaselineOfBlocSerialization >> dependency: spec [
 
+	"Serialization backends"
 	spec
 		baseline: 'Ston'
 		with: [ spec repository: 'github://svenvc/ston/repository' ].
@@ -33,7 +34,12 @@ BaselineOfBlocSerialization >> dependency: spec [
 		baseline: 'StashSerialization'
 		with: [ spec repository: 'github://OpenSmock/Stash/src' ].
 
+	"Graphic librairies: this section should be removed when librairies will be integrated in Pharo"
+	spec
+		baseline: 'Alexandrie'
+		with: [ spec repository: 'github://ThalesGroup/Alexandrie:dev' ].
+
 	spec
 		baseline: 'Bloc'
-		with: [ spec repository: 'github://OpenSmock/Bloc:dev/src' ].
+		with: [ spec repository: 'github://ThalesGroup/Bloc:dev' ].
 ]

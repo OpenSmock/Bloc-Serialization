@@ -76,12 +76,16 @@ Serialization or Materialization process return some exceptions in case of probl
 
 ## Serialization backends
 
-Actually `STON` is the only backend used for serialization. The project architecture allow to add anothers serialization backends if needed.
+`Stash` and `STON` can be used as serialization backends.
+
+The project architecture is flexible enough to accommodate the addition of more serialization backends if required.
 
 ## Dependencies
 
-- [Bloc](https://github.com/pharo-graphics/Bloc)
+- [Stash](https://github.com/OpenSmock/stash)
 - [STON](https://github.com/svenvc/ston)
+- [Alexandrie](https://github.com/pharo-graphics/Alexandrie)
+- [Bloc](https://github.com/pharo-graphics/Bloc)
 
 ## License
 
