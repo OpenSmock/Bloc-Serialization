@@ -32,7 +32,7 @@ BaselineOfBlocSerialization >> dependency: spec [
 
 	spec
 		baseline: 'StashSerialization'
-		with: [ spec repository: 'github://ThalesGroup/Stash:master' ].
+		with: [ spec repository: 'github://ThalesGroup/Stash:main' ].
 
 	"Graphic librairies: this section should be removed when librairies will be integrated in Pharo"
 	spec
