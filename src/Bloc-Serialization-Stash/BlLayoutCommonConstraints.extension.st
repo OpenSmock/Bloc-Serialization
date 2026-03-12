@@ -2,10 +2,11 @@ Extension { #name : #BlLayoutCommonConstraints }
 
 { #category : #'*Bloc-Serialization-Stash' }
 BlLayoutCommonConstraints >> stashAccessorsForCommonConstraints [
+
 	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
-	
+
 	self flow allSetterAndGettersForMyStash ifNotEmpty: [
 		settersAndGetters add: #flow onlyGetOnStash ].
 	self frame allSetterAndGettersForMyStash ifNotEmpty: [
@@ -20,12 +21,8 @@ BlLayoutCommonConstraints >> stashAccessorsForCommonConstraints [
 		settersAndGetters add: #relative onlyGetOnStash ].
 	self zoomable allSetterAndGettersForMyStash ifNotEmpty: [
 		settersAndGetters add: #zoomable onlyGetOnStash ].
-	
+
 	self position = (0 @ 0) ifFalse: [ settersAndGetters add: #position ].
-	self padding = BlInsets empty ifFalse: [
-		settersAndGetters add: #padding ].
-	self margin = BlInsets empty ifFalse: [
-		settersAndGetters add: #margin ].
 
 	self maxHeight = Float infinity ifFalse: [
 		settersAndGetters add: #maxHeight ].
@@ -35,8 +32,8 @@ BlLayoutCommonConstraints >> stashAccessorsForCommonConstraints [
 	self minWidth = 0 ifFalse: [ settersAndGetters add: #minWidth ].
 
 	accountTransformation ifTrue: [
-		settersAndGetters add:
-			([ :c | #accountTransformation ] -> self) onlySetOnStash ].
+			settersAndGetters add:
+				([ :c | #accountTransformation ] -> self) onlySetOnStash ].
 
 	^ settersAndGetters
 ]

@@ -41,6 +41,48 @@ BlElement >> allSetterAndGettersForMyStashLayout [
 ]
 
 { #category : #'*Bloc-Serialization-Stash' }
+BlElement >> allSetterAndGettersForMyStashMargin [
+
+	<stashAccessors>
+	self margin = BlInsets empty ifFalse: [
+		^ { #margin } ].
+	^ {  }
+]
+
+{ #category : #'*Bloc-Serialization-Stash' }
+BlElement >> allSetterAndGettersForMyStashOtherProperties [
+
+	<stashAccessors>
+	| settersAndGetters |
+	settersAndGetters := OrderedCollection new.
+	self visibility
+	== (BlElementVisuals classPool at: #DefaultVisibility) ifFalse: [
+		settersAndGetters add: #visibility ].
+	self clipChildren
+	== (BlElementVisuals classPool at: #DefaultClipChildren) ifFalse: [
+		settersAndGetters add: #clipChildren ].
+	self focusability
+	== (BlElementVisuals classPool at: #DefaultFocusability) ifFalse: [
+		settersAndGetters add: #focusability ].
+	self elevation == (BlElementVisuals classPool at: #DefaultElevation)
+		ifFalse: [ settersAndGetters add: #elevation ].
+	self focused == (BlElementVisuals classPool at: #DefaultFocused)
+		ifFalse: [ settersAndGetters add: #focused ].
+	self mouseCursor
+	== (BlElementVisuals classPool at: #DefaultMouseCursor) ifFalse: [
+		settersAndGetters add: #mouseCursor ].
+	^ settersAndGetters
+]
+
+{ #category : #'*Bloc-Serialization-Stash' }
+BlElement >> allSetterAndGettersForMyStashPadding [
+
+	<stashAccessors>
+	self padding = BlInsets empty ifFalse: [ ^ { #padding } ].
+	^ {  }
+]
+
+{ #category : #'*Bloc-Serialization-Stash' }
 BlElement >> allSetterAndGettersForMyStashTransformation [
 
 	<stashAccessors>
@@ -65,24 +107,7 @@ BlElement >> allSetterAndGettersForMyStashVisuals [
 		ifFalse: [ settersAndGetters add: #effect ].
 	self opacity == (BlElementVisuals classPool at: #DefaultOpacity)
 		ifFalse: [ settersAndGetters add: #opacity ].
-	self visibility
-	== (BlElementVisuals classPool at: #DefaultVisibility) ifFalse: [
-		settersAndGetters add: #visibility ].
 	self outskirts == (BlElementVisuals classPool at: #DefaultOutskirts)
 		ifFalse: [ settersAndGetters add: #outskirts ].
-	self clipChildren
-	== (BlElementVisuals classPool at: #DefaultClipChildren) ifFalse: [
-		settersAndGetters add: #clipChildren ].
-	self focusability
-	== (BlElementVisuals classPool at: #DefaultFocusability) ifFalse: [
-		settersAndGetters add: #focusability ].
-	self elevation == (BlElementVisuals classPool at: #DefaultElevation)
-		ifFalse: [ settersAndGetters add: #elevation ].
-	self focused == (BlElementVisuals classPool at: #DefaultFocused)
-		ifFalse: [ settersAndGetters add: #focused ].
-	self mouseCursor
-	== (BlElementVisuals classPool at: #DefaultMouseCursor) ifFalse: [
-		settersAndGetters add: #mouseCursor ].
 	^ settersAndGetters
-
 ]
