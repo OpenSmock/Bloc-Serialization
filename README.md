@@ -82,7 +82,7 @@ The project architecture is flexible enough to accommodate the addition of more 
 
 ## Dependencies
 
-- [Stash](https://github.com/OpenSmock/stash)
+- [Stash](https://github.com/ThalesGroup/stash)
 - [STON](https://github.com/svenvc/ston)
 - [Alexandrie](https://github.com/pharo-graphics/Alexandrie)
 - [Bloc](https://github.com/pharo-graphics/Bloc)
