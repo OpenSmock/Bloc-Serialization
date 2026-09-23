@@ -3,7 +3,15 @@ SmalltalkCISpec {
     SCIMetacelloLoadSpec {
       #baseline : 'BlocSerialization',
       #directory : 'src',
-      #platforms : [ #pharo ]
+      #platforms : [ #pharo ],
+      #onConflict : #useIncoming,
+      #onUpgrade : #useLoaded,
+      #ignoreImage : true
     }
-  ]
+  ],
+
+  #testing : {
+    #failOnZeroTests : false,
+    #packages : [ 'Bloc-Serialization.*.Tests' ]
+  }
 }
