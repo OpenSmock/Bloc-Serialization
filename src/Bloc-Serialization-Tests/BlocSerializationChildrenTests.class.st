@@ -19,17 +19,18 @@ BlocSerializationChildrenTests >> testChildren [
 			e3 }.
 
 	self test: origin on: [ :element |
-			self assert: element parent equals: nil.
-			self assert: element children size equals: 3.
-			self assert: (element childAt: 1) parent equals: element.
-			self assert: (element childAt: 1) isFirstChild equals: true.
-			self assert: (element childAt: 1) isLastChild equals: false.
-			self assert: (element childAt: 2) parent equals: element.
-			self assert: (element childAt: 2) isFirstChild equals: false.
-			self assert: (element childAt: 2) isLastChild equals: false.
-			self assert: (element childAt: 3) parent equals: element.
-			self assert: (element childAt: 3) isFirstChild equals: false.
-			self assert: (element childAt: 3) isLastChild equals: true ]
+		self assert: element parent equals: nil.
+		self assert: element children size equals: 3.
+		self assert: (element childAt: 1) parent equals: element.
+		self assert: (element childAt: 1) isFirstChild.
+		self deny: (element childAt: 1) isLastChild.
+		self assert: (element childAt: 2) parent equals: element.
+		self deny: (element childAt: 2) isFirstChild.
+		self deny: (element childAt: 2) isLastChild.
+		self assert: (element childAt: 3) parent equals: element.
+		self deny: (element childAt: 3) isFirstChild.
+		self assert: (element childAt: 3) isLastChild 
+	]
 ]
 
 { #category : #tests }
@@ -49,7 +50,7 @@ BlocSerializationChildrenTests >> testChildren1 [
 		      background: Color green;
 		      yourself.
 	e3 := BlElement new
-		      size: 80 @ 600;
+		      extent: 80 @ 600;
 		      background: Color yellow;
 		      yourself.
 
@@ -59,17 +60,18 @@ BlocSerializationChildrenTests >> testChildren1 [
 			e3 }.
 
 	self test: origin on: [ :element |
-			self assert: element parent equals: nil.
-			self assert: element children size equals: 3.
-			self assert: (element childAt: 1) owner equals: element.
-			self assert: (element childAt: 1) isFirstChild equals: true.
-			self assert: (element childAt: 1) isLastChild equals: false.
-			self assert: (element childAt: 2) owner equals: element.
-			self assert: (element childAt: 2) isFirstChild equals: false.
-			self assert: (element childAt: 2) isLastChild equals: false.
-			self assert: (element childAt: 3) owner equals: element.
-			self assert: (element childAt: 3) isFirstChild equals: false.
-			self assert: (element childAt: 3) isLastChild equals: true ]
+		self assert: element parent equals: nil.
+		self assert: element children size equals: 3.
+		self assert: (element childAt: 1) parent equals: element.
+		self assert: (element childAt: 1) isFirstChild.
+		self deny: (element childAt: 1) isLastChild.
+		self assert: (element childAt: 2) parent equals: element.
+		self deny: (element childAt: 2) isFirstChild.
+		self deny: (element childAt: 2) isLastChild.
+		self assert: (element childAt: 3) parent equals: element.
+		self deny: (element childAt: 3) isFirstChild.
+		self assert: (element childAt: 3) isLastChild 
+	]
 ]
 
 { #category : #tests }
@@ -89,7 +91,7 @@ BlocSerializationChildrenTests >> testChildren2 [
 		      background: Color green;
 		      yourself.
 	e3 := BlElement new
-		      size: 80 @ 600;
+		      extent: 80 @ 600;
 		      background: Color yellow;
 		      yourself.
 
@@ -140,7 +142,7 @@ BlocSerializationChildrenTests >> testChildren3 [
 		      background: Color green;
 		      yourself.
 	e3 := BlElement new
-		      size: 80 @ 600;
+		      extent: 80 @ 600;
 		      background: Color yellow;
 		      yourself.
 
@@ -177,17 +179,18 @@ BlocSerializationChildrenTests >> testChildrenBasic1 [
 			e3 }.
 
 	self test: origin on: [ :element |
-			self assert: element parent equals: nil.
-			self assert: element children size equals: 3.
-			self assert: (element childAt: 1) parent equals: element.
-			self assert: (element childAt: 1) isFirstChild equals: true.
-			self assert: (element childAt: 1) isLastChild equals: false.
-			self assert: (element childAt: 2) parent equals: element.
-			self assert: (element childAt: 2) isFirstChild equals: false.
-			self assert: (element childAt: 2) isLastChild equals: false.
-			self assert: (element childAt: 3) parent equals: element.
-			self assert: (element childAt: 3) isFirstChild equals: false.
-			self assert: (element childAt: 3) isLastChild equals: true ]
+		self assert: element parent equals: nil.
+		self assert: element children size equals: 3.
+		self assert: (element childAt: 1) parent equals: element.
+		self assert: (element childAt: 1) isFirstChild.
+		self deny: (element childAt: 1) isLastChild.
+		self assert: (element childAt: 2) parent equals: element.
+		self deny: (element childAt: 2) isFirstChild.
+		self deny: (element childAt: 2) isLastChild.
+		self assert: (element childAt: 3) parent equals: element.
+		self deny: (element childAt: 3) isFirstChild.
+		self assert: (element childAt: 3) isLastChild 
+	]
 ]
 
 { #category : #tests }
